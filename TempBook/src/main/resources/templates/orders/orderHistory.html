@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>주문 내역</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+<body>
+<div id="container">
+    <!-- 프래그먼트 삽입 -->
+    <header th:replace="common/header :: header"></header>
+    <main>
+        <h2>주문 내역</h2>
+        <div th:if="${successMessage}" th:text="${successMessage}" style="color:blue;"></div>
+        <table border="1">
+            <thead>
+            <tr>
+                <th>주문번호</th>
+                <th>주문일자</th>
+                <th>도서번호</th>
+                <th>판매가격</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="order : ${orders}">
+                <td th:text="${order.orderid}"></td>
+                <td th:text="${order.orderdate}"></td>
+                <td th:text="${order.bookid}"></td>
+                <td th:text="${#numbers.formatDecimal(order.saleprice, 0, 'COMMA', 0, 'POINT')}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+    <footer th:replace="common/footer :: footer"></footer>
+</div>
+</body>
+</html>

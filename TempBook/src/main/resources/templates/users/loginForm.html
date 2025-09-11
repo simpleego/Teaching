@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/common.css">
+</head>
+<body>
+<div id="container">
+    <div th:replace="common/header :: header"></div>
+    <main id="sub_container">
+        <form action="/user/login" method="post">
+            <label>회원아이디 : </label>
+            <input type="text" name="username" required="required"/><br>
+            <label>비밀번호 : </label>
+            <input type="password" name="password" required="required"/><br>
+            <button type="submit">로그인</button>
+        </form>
+    </main>
+    <div th:replace="common/footer :: footer"></div>
+</div>
+</body>
+</html>

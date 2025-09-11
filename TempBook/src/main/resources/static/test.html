@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>도서관리 시스템</h1>
+    <div th:if="${session.loginUser == null}" >
+        <a href="/user/add">회원가입</a>
+        <a href="/user/login">로그인</a>
+    </div>
+    <div th:if="${session.loginUser != null}">
+        <p th:text="|${session.loginUser.username}|">님, 환영합니다.</p>
+        <form th:action="@{/logout}" method="post">
+            <button type="button">로그아웃</button>
+        </form>
+    </div>
+
+    <a href="/user/list">회원목록</a>
+</body>
+</html>
