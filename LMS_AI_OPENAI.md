@@ -7,7 +7,7 @@
 
 # 1) 프로젝트 스캐폴딩
 
-### `pom.xml`
+### `build.gradle`
 
 ```Groovy
 plugins {
