@@ -5,6 +5,8 @@
 
 <img width="395" height="383" alt="image" src="https://github.com/user-attachments/assets/9ee3c886-7725-4a68-b1fa-9c6c8c9334ee" />
 
+--- 
+
 ### 1. Git 소개 및 개념 (10분)
 **Git이란?**
 - 분산 버전 관리 시스템(Distributed Version Control System)
