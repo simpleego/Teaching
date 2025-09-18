@@ -1,6 +1,6 @@
-Git 1시간 강의를 위한 내용을 체계적으로 정리해드리겠습니다.
+## Git
+<img width="686" height="386" alt="image" src="https://github.com/user-attachments/assets/aa0d198a-13a5-4f6d-89be-9390654d7eb6" />
 
-## Git 1시간 강의 커리큘럼
 
 ### 1. Git 소개 및 개념 (10분)
 **Git이란?**
