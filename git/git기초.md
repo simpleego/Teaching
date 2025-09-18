@@ -1,6 +1,9 @@
 ## Git
 <img width="686" height="386" alt="image" src="https://github.com/user-attachments/assets/aa0d198a-13a5-4f6d-89be-9390654d7eb6" />
 
+--
+
+<img width="395" height="383" alt="image" src="https://github.com/user-attachments/assets/9ee3c886-7725-4a68-b1fa-9c6c8c9334ee" />
 
 ### 1. Git 소개 및 개념 (10분)
 **Git이란?**
