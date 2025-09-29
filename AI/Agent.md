@@ -1,7 +1,8 @@
-# 
-AI Agent 개발의 핵심: RAG와 LangChain, LangGraph 비교 분석
-전체 / 글쓴이 김예영
+# AI Agent 개발의 핵심: RAG와 LangChain, LangGraph 비교 분석
+
 요즘 화두가 되고 있는 AI Agent 개발에 핵심적인 RAG 개념과 LangChain, LangGraph 프레임워크에 대해서 소개하고자 합니다.
+
+참고사이트 : https://blog.kyobodts.co.kr/2025/02/28/ai-agent-%EA%B0%9C%EB%B0%9C%EC%9D%98-%ED%95%B5%EC%8B%AC-rag%EC%99%80-langchain-langgraph-%EB%B9%84%EA%B5%90-%EB%B6%84%EC%84%9D/
 
 ## RAG (Retrieval-Augmented Generation)
 
