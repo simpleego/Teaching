@@ -10,7 +10,7 @@ AI Agent가 보다 정교한 이해와 논리적 추론을 수행하려면, 방�
 
 AI Agent는 단순한 질의응답을 넘어 연속적인 작업 수행과 의사결정을 해야 하는 경우가 많기 때문에, 동적으로 필요한 정보를 검색하고 이를 조합하여 실행 계획을 수립할 수 있는 능력이 필요합니다. 이를 위해 모듈러 RAG 개념이 등장했고, 검색, 필터링 메모리 관리, 응답 생성 등의 기능을 더욱 정교하게 조합할 수 있도록 LangChain과 LangGraph 같은 프레임워크가 개발되었습니다. 이 기술을 활용하면 AI Agent는 단순한 LLM 기반 챗봇을 넘어 복잡한 문제를 해결하는 지능형 시스템으로 발전할 수 있습니다.
 
-<img width="1024" height="517" alt="image" src="https://github.com/user-attachments/assets/fa708629-09f0-4c91-b174-bcb92e4a3218" />
+<img width="852" height="425" alt="image" src="https://github.com/user-attachments/assets/2b826e22-d674-4e10-8696-e2360e3b6ad9" />
 
 
 Naive RAG, Advanced RAG, Modular RAG 비교 (출처: Modular RAG: Transforming RAG System into LEGO-like Reconfigurable Frameworks)
