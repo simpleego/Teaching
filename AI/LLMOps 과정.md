@@ -2,7 +2,7 @@
 > LLMOps 강의를 구성할 때는 대규모 언어 모델(LLM)의 개발, 배포, 운영 전반을 아우르는 실무 중심의 커리큘럼이 필요합니다.
 > 아래는 실제 강의 사례와 업계 흐름을 바탕으로 정리한 과목 구성안입니다.
 ---
-<img src="https://cdn.day1company.io/prod/uploads/202412/162932-890/con2-w.webp" alt="LLMOps">
+<img src="https://cdn.day1company.io/prod/uploads/202412/162932-890/con2-w.webp" alt="LLMOps"  width=80%>
 
 
 ### 🧠 핵심 과목 구성안: LLMOps 강의
