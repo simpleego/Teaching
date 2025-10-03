@@ -8,7 +8,7 @@ Spring Boot 앱은 실행 가능한 **JAR**(또는 WAR)로 빌드해서 Elastic 
 
 ---
 
-# 전제(준비물)
+# 전체(준비물)
 
 1. AWS 계정(사용자 IAM) — 프로그램 접근용 액세스키/리전 설정.
 2. 개발 PC: Java JDK(예: 17), 빌드툴(Maven 또는 Gradle).
