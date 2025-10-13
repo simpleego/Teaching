@@ -9,6 +9,14 @@
 
 ## 교육과정
 
+| APP 과정                                 | AI 과정       | 실무프로젝트                    |
+|------------------------------------------|---------------|---------------------------------|
+| Java Programming & Computaional Thinking | AI Awareness  | Computer Vision 도메인 프로젝트 |
+| Data Structure & DB Programming          | AI Foundation | NLP 도메인 프로젝트             |
+| Android App Programming                  | AI Experience | App 프로젝트                    |
+|                                          | AI Capstone   |                                 |
+
+
 ### APP 과정
 
 | Java Programming & Computational Thinking | 프로그래밍의 이해                                    |
