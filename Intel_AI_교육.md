@@ -35,9 +35,8 @@
 
 
 ### AI 과정
-
-
 | AI Awarness                                   | Emerging Technologies - AI (AI의 최신 기술)                                                 |
+|-----------------------------------------------|---------------------------------------------------------------------------------------------|
 |                                               | What is Inside AI (AI의 구성 요소)                                                          |
 |                                               | Impact of AI on Your Future : Surviving AI (AI가 미래에 미치는 영향 : AI 시대에서 살아남기) |
 |                                               | Inclusive AI (모두를 위한 AI)                                                               |
