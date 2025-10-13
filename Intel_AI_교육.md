@@ -5,25 +5,32 @@
 인텔의 AI 소프트웨어 Intel Geti와 OpenVINO를 활용해 실무에서 바로 적용할 수 있는 AI 모델 개발과 최적화 기술을 배워보세요.
 이 교육 과정은 AutoML 기반의 AI 개발부터 딥러닝 모델의 성능 최적화 및 배포까지, AI 개발의 모든 핵심을 다룹니다.
 
-## 프로젝트 내용
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/5bd3a7bc-cdc8-4167-850e-134644c0ab14" />
 
-
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/4199aa12-a204-4fb4-8910-db6f22bd5a8f" />
-
-
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/f90b835c-1228-4285-b5cf-a125cf212627" />
-
-
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/a7f46635-c0b5-428c-ac29-41029e7acbe8" />
-
-<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/47ea07e0-f107-43e9-b6db-dcbb73b20564" />
 
 ## 교육과정
 
-<img width="1279" height="657" alt="image" src="https://github.com/user-attachments/assets/45f88d5b-fac1-42d1-bb4e-fe6e0073e8dc" />
+<img width="1345" height="448" alt="image" src="https://github.com/user-attachments/assets/79253fff-e091-4120-8d43-4b6ce2694a7e" />
 
-AI 과정
+
+### APP 과정
+
+| Java Programming & Computational Thinking | 프로그래밍의 이해                                    |
+|-------------------------------------------|------------------------------------------------------|
+|                                           | 컴퓨팅사고                                           |
+|                                           | 자바 프로그래밍                                      |
+|                                           | 객체지향 프로그래밍                                  |
+|                                           | 안드로이드 앱 프로그래밍                             |
+| Data Structure & DB Programming           | 자료구조                                             |
+|                                           | 알고리즘                                             |
+|                                           | 데이터베이스                                         |
+|                                           | 소프트웨어 엔지니어링                                |
+| Android App Programming                   | 안드로이드 스튜디오 활용 및 안드로이드 프로젝트 이해 |
+|                                           | 안드로이드 화면 구성 및 전환                         |
+|                                           | 안드로이드 개발 심화 — MLKit, 배포                   |
+|                                           | 안드로이드 비동기 처리 — API, 네트워크, 스레드       |
+
+
+### AI 과정
 
 | AI Awarness                                   | Emerging Technologies - AI (AI의 최신 기술)                                                 |
 |-----------------------------------------------|---------------------------------------------------------------------------------------------|
@@ -63,4 +70,16 @@ AI 과정
 |                                               | Guided Example: Hotel Reception Chatbot (실습 예제: 호텔 리셉션 챗봇)                       |
 
 
+## 프로젝트 내용
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/5bd3a7bc-cdc8-4167-850e-134644c0ab14" />
 
+
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/4199aa12-a204-4fb4-8910-db6f22bd5a8f" />
+
+
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/f90b835c-1228-4285-b5cf-a125cf212627" />
+
+
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/a7f46635-c0b5-428c-ac29-41029e7acbe8" />
+
+<img width="1600" height="900" alt="image" src="https://github.com/user-attachments/assets/47ea07e0-f107-43e9-b6db-dcbb73b20564" />
