@@ -1,0 +1,18 @@
+/* Clock.module.css */
+.clockContainer {
+  text-align: center;
+  border: 10px solid #ddd;
+  width: 400px;
+  margin: 50px auto;
+  padding: 2em;
+  border-radius: 2em;
+}
+
+.timeText {
+  font-size: 3em;
+  font-weight: bold;
+  color: red;
+  background-color: bisque;
+  padding: 15px;
+  border-radius: 30px;
+}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styles from './Clock.module.css';
 
 function ClockTime() {
   const [time, setTime] = useState(new Date());
@@ -13,9 +14,10 @@ function ClockTime() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.clockContainer}>
       <h1>안녕, 리액트!</h1>
-      <h2>현재 시간: {time.toLocaleTimeString()}</h2>
+      <h2>현재 시간:</h2>
+      <span className={styles.timeText}>{time.toLocaleTimeString()}</span>
     </div>
   );
 }
