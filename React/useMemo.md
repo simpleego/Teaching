@@ -1,5 +1,10 @@
-React의 useMemo 훅은 계산 비용이 높은 값을 최적화하는 데 사용됩니다. 즉, 의존성 배열의 값이 변경되지 않는 한 이전 계산 결과를 **기억(memoize)**하고 재사용합니다.
-다음은 간단한 예시입니다. 이 예시에서 calculateExpensiveValue 함수는 일부 복잡하고 시간이 오래 걸리는 계산을 시뮬레이션한다고 가정합니다.
+# useMemo  
+>  React의 useMemo 훅은 계산 비용이 높은 값을 최적화하는 데 사용됩니다.
+> 즉, 의존성 배열의 값이 변경되지 않는 한 이전 계산 결과를 **기억(memoize)**하고 재사용합니다.
+> 다음은 간단한 예시입니다. 이 예시에서 calculateExpensiveValue 함수는 일부 복잡하고 시간이 오래 걸리는 계산을 시뮬레이션한다고 가정합니다.
+
+
+```js
 import React, { useState, useMemo } from 'react';
 
 function ExampleComponent() {
@@ -55,6 +60,8 @@ function ExampleComponent() {
 }
 
 export default ExampleComponent;
+```
+
 
 주요 설명
 | 요소 | 역할 및 설명 |
