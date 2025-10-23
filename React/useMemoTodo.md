@@ -18,7 +18,7 @@
 
 🧩 코드 예제
 
-`jsx
+```jsx
 import React, { useEffect, useState, useMemo } from "react";
 
 const TodoList = () => {
@@ -74,7 +74,7 @@ const TodoList = () => {
 };
 
 export default TodoList;
-`
+```
 
 ---
 
