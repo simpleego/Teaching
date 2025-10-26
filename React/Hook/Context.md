@@ -15,3 +15,177 @@
 
 결론적으로 이 영상은 `useContext`와 `Context API`가 리액트에서 전역 상태를 관리하고 `props drilling` 문제를 해결하는 강력한 도구임을 실제 코드 예시와 함께 이해하기 쉽게 설명합니다.
 http://googleusercontent.com/youtube_content/7
+
+# 소스 코드 
+네, 당연히 가능합니다. 영상 설명에 사용된 최종 코드를 파일별로 정리해서 텍스트로 변환해 드릴게요.
+
+### **`src/App.js`**
+
+`ThemeContext`와 `UserContext`의 `Provider`를 사용하여 하위 컴포넌트들에게 전역적인 상태(`isDark`, `user`)를 제공합니다.
+
+```javascript
+import { useState } from 'react';
+import './App.css';
+import Page from './components/Page';
+import { ThemeContext } from './context/ThemeContext';
+import { UserContext } from './context/UserContext';
+
+function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  return (
+    <UserContext.Provider value={'사용자'}>
+      <ThemeContext.Provider value={{ isDark, setIsDark }}>
+        <Page />
+      </ThemeContext.Provider>
+    </UserContext.Provider>
+  );
+}
+
+export default App;
+```
+
+-----
+
+### **`src/components/Page.jsx`**
+
+`Header`, `Content`, `Footer` 세 가지 컴포넌트를 렌더링하는 중간 컴포넌트입니다. `Context`를 사용함으로써 `props`를 전달할 필요가 없어졌습니다.
+
+```javascript
+import React from 'react';
+import Content from './Content';
+import Footer from './Footer';
+import Header from './Header';
+
+const Page = () => {
+    return (
+        <div className="page">
+            <Header />
+            <Content />
+            <Footer />
+        </div>
+    );
+};
+
+export default Page;
+```
+
+-----
+
+### **`src/components/Header.jsx`**
+
+`useContext`를 사용하여 `ThemeContext`의 `isDark` 상태와 `UserContext`의 사용자 이름을 받아와 화면에 표시합니다.
+
+```javascript
+import React, { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
+import { UserContext } from '../context/UserContext';
+
+const Header = () => {
+    const { isDark } = useContext(ThemeContext);
+    const user = useContext(UserContext);
+
+    return (
+        <header
+            className="header"
+            style={{
+                backgroundColor: isDark ? 'black' : 'lightgray',
+                color: isDark ? 'white' : 'black',
+            }}
+        >
+            <h1>Welcome {user}!</h1>
+        </header>
+    );
+};
+
+export default Header;
+```
+
+-----
+
+### **`src/components/Content.jsx`**
+
+`useContext`를 통해 `isDark` 상태와 사용자 이름을 가져와 콘텐츠 영역의 스타일과 내용을 구성합니다.
+
+```javascript
+import React, { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
+import { UserContext } from '../context/UserContext';
+
+const Content = () => {
+    const { isDark } = useContext(ThemeContext);
+    const user = useContext(UserContext);
+
+    return (
+        <div
+            className="content"
+            style={{
+                backgroundColor: isDark ? 'black' : 'white',
+                color: isDark ? 'white' : 'black',
+            }}
+        >
+            <p>{user}님, 좋은 하루 되세요</p>
+        </div>
+    );
+};
+
+export default Content;
+```
+
+-----
+
+### **`src/components/Footer.jsx`**
+
+`useContext`를 통해 `isDark` 상태와 상태를 변경하는 `setIsDark` 함수를 받아와 다크 모드 토글 버튼 기능을 구현합니다.
+
+```javascript
+import React, { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
+
+const Footer = () => {
+    const { isDark, setIsDark } = useContext(ThemeContext);
+
+    const toggleTheme = () => {
+        setIsDark(!isDark);
+    };
+
+    return (
+        <footer
+            className="footer"
+            style={{
+                backgroundColor: isDark ? 'black' : 'lightgray',
+            }}
+        >
+            <button className="button" onClick={toggleTheme}>
+                Dark Mode
+            </button>
+        </footer>
+    );
+};
+
+export default Footer;
+```
+
+-----
+
+### **`src/context/ThemeContext.js`**
+
+테마(다크 모드) 관련 상태를 전역적으로 관리하기 위한 `Context`를 생성합니다.
+
+```javascript
+import { createContext } from 'react';
+
+export const ThemeContext = createContext(null);
+```
+
+-----
+
+### **`src/context/UserContext.js`**
+
+사용자 정보 관련 상태를 전역적으로 관리하기 위한 `Context`를 생성합니다.
+
+```javascript
+import { createContext } from 'react';
+
+export const UserContext = createContext(null);
+```
