@@ -1,0 +1,22 @@
+.movie-detail-container {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.movie-detail-poster {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.movie-detail-info {
+  max-width: 600px;
+  text-align: left;
+}
+
+.movie-detail-info h1 {
+  margin-top: 0;
+}
