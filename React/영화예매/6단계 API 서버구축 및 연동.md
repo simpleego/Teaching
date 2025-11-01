@@ -46,7 +46,7 @@ const movies = [
   {
     id: 1,
     title: "웡카",
-    poster: "https://via.placeholder.com/200x300.png?text=Wonka",
+    poster: "https://placehold.co/200x300.png?text=Wonka",
     genre: "판타지, 드라마",
     director: "폴 킹",
     releaseDate: "2024-01-31",
@@ -55,7 +55,7 @@ const movies = [
   {
     id: 2,
     title: "시민덕희",
-    poster: "https://via.placeholder.com/200x300.png?text=Citizen+of+a+Kind",
+    poster: "https://placehold.co/200x300.png?text=Citizen+of+a+Kind",
     genre: "드라마",
     director: "박영주",
     releaseDate: "2024-01-24",
@@ -64,7 +64,7 @@ const movies = [
   {
     id: 3,
     title: "외계+인 2부",
-    poster: "https://via.placeholder.com/200x300.png?text=Alienoid:Part2",
+    poster: "https://placehold.co/200x300.png?text=Alienoid:Part2",
     genre: "SF, 액션",
     director: "최동훈",
     releaseDate: "2024-01-10",
