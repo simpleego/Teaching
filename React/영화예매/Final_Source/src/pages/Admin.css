@@ -1,0 +1,25 @@
+.admin-container {
+  width: 800px;
+  margin: 30px auto;
+  padding: 1em;
+  border: 10px solid #ddd;
+  font-size: 1.5em;
+  padding-bottom: 5em;
+}
+
+table {
+  width: 800px;
+  border-collapse: collapse;
+}
+
+.movie-table {
+
+}
+
+table, td, th {
+  border: 1px solid;
+  padding: 10px;
+}
+th {
+  background-color: lightgray;
+}

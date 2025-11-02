@@ -1,0 +1,74 @@
+.reservation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  padding: auto;
+  min-height: 100vh;
+}
+
+.screen {
+  width: 500px;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #444;
+  color: white;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-weight: bold;
+}
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  width: 500px;
+}
+
+.seat {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 0.8rem;
+}
+
+.seat:hover {
+  background-color: #ddd;
+}
+
+/* 선택된 좌석 스타일 */
+.seat.selected {
+  background-color: #6e00ff;
+  color: white;
+  border-color: #6e00ff;
+}
+
+.reservation-info {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 500px;
+  text-align: center;
+}
+
+.payment-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.2s;
+}
+
+.payment-button:hover {
+    background-color: #cc0000;
+}

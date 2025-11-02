@@ -1,0 +1,5 @@
+.main {
+  flex: 1;
+  padding: 1rem;
+ /* min-height: 100vh;  /* 헤더와 푸터 높이를 제외한 나머지 영역 */
+}
