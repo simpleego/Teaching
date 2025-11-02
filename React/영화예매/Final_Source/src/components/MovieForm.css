@@ -1,0 +1,23 @@
+
+.movie-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5em;
+}
+input{  
+  padding: 8px;
+}
+
+label {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+button {
+  padding: 1em;
+  background-color: gray;
+  border-radius: 20px;
+  color: white;
+  font-weight: bolder;
+}

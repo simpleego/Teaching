@@ -4,6 +4,7 @@
   padding: 40px;
   justify-content: center;
   align-items: flex-start;
+  min-height: 100vh;
 }
 
 .movie-detail-poster {
