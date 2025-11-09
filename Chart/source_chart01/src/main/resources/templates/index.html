@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js + Spring Boot Demo</title>
+    <link rel="stylesheet" th:href="@{style.css}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Chart.js + Spring Boot 데이터 시각화</h1>
+
+    <div class="controls">
+        <button id="loadBarChart">막대 그래프</button>
+        <button id="loadPieChart">원형 그래프</button>
+        <button id="loadLineChart">선 그래프</button>
+        <button id="loadMultiLineChart">다중 선 그래프</button>
+        <button id="loadStackedBarChart">누적 막대 그래프</button>
+        <button id="clearCharts">차트 지우기</button>
+    </div>
+
+    <div class="chart-container">
+        <div class="chart-wrapper">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+    <div class="data-info">
+        <h3>데이터 정보</h3>
+        <div id="dataInfo"></div>
+    </div>
+</div>
+
+<script th:src="@{chart.js}"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+    flex: 1;
+    min-width: 120px;
+    max-width: 180px;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+#loadBarChart {
+    background-color: #3498db;
+}
+
+#loadPieChart {
+    background-color: #9b59b6;
+}
+
+#loadLineChart {
+    background-color: #2ecc71;
+}
+
+#loadMultiLineChart {
+    background-color: #e67e22;
+}
+
+#loadStackedBarChart {
+    background-color: #34495e;
+}
+
+#clearCharts {
+    background-color: #e74c3c;
+}
+
+#clearCharts:hover {
+    background-color: #c0392b;
+}
+
+.chart-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+    transition: all 0.3s;
+}
+
+.chart-container:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 500px;
+    width: 100%;
+}
+
+.data-info {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+.data-info:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.data-info h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 8px;
+}
+
+#dataInfo {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    min-height: 80px;
+    border-left: 4px solid #3498db;
+}
+
+.dataset-info {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #e8f4f8;
+    border-radius: 4px;
+    border-left: 3px solid #2980b9;
+}
+
+.dataset-info h4 {
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+    }
+
+    button {
+        max-width: 100%;
+    }
+
+    .chart-wrapper {
+        height: 400px;
+    }
+}
