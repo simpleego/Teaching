@@ -1,6 +1,10 @@
 # CSRF(Cross-Site Request Forgery) 공격 정리
 
 ## 1. CSRF 공격이란?
+<img width="1010" height="505" alt="image" src="https://github.com/user-attachments/assets/0fe91d9e-b324-48a9-ae17-8e4a9ba0f87b" />
+
+<img width="1902" height="1648" alt="image" src="https://github.com/user-attachments/assets/72f95df6-b760-4f6d-ae67-4543ece45fdc" />
+
 
 **CSRF(Cross-Site Request Forgery)**는 웹 애플리케이션 취약점 공격 기법 중 하나로, **사용자가 자신의 의지와 무관하게 공격자가 의도한 행위를 특정 웹사이트에 요청하게 만드는 공격**입니다.
 
