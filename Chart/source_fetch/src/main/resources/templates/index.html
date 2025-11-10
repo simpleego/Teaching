@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js + Spring Boot Demo</title>
+    <link rel="stylesheet" th:href="@{style.css}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>Chart.js + Spring Boot 데이터 시각화 ~~~</h1>
+
+    <!-- 자동 업데이트 컨트롤 -->
+    <div class="auto-update-controls">
+        <h3>자동 업데이트 설정</h3>
+        <div class="control-group">
+            <label for="updateInterval">업데이트 주기 (초):</label>
+            <select id="updateInterval">
+                <option value="0">수동 모드</option>
+                <option value="10">10초</option>
+                <option value="15">15초</option>
+                <option value="20">20초</option>
+                <option value="30">30초</option>
+            </select>
+            <button id="startAutoUpdate">자동 업데이트 시작</button>
+            <button id="stopAutoUpdate">자동 업데이트 중지</button>
+        </div>
+        <div class="status">
+            <span id="updateStatus">현재 상태: 수동 모드</span>
+            <span id="lastUpdateTime">마지막 업데이트: -</span>
+        </div>
+    </div>
+
+    <!-- 차트 타입 선택 -->
+    <div class="chart-type-controls">
+        <h3>차트 타입 선택</h3>
+        <div class="controls">
+            <button id="loadBarChart">막대 그래프</button>
+            <button id="loadPieChart">원형 그래프</button>
+            <button id="loadLineChart">선 그래프</button>
+            <button id="loadMultiLineChart">다중 선 그래프</button>
+            <button id="loadStackedBarChart">누적 막대 그래프</button>
+            <button id="clearCharts">차트 지우기</button>
+        </div>
+    </div>
+
+    <!-- 실시간 데이터 새로고침 -->
+    <div class="manual-refresh">
+        <button id="refreshData">데이터 새로고침</button>
+        <span id="refreshStatus"></span>
+    </div>
+
+    <!-- 차트 컨테이너 -->
+    <div class="chart-container">
+        <div class="chart-header">
+            <h3 id="chartTitle">차트를 선택해주세요</h3>
+            <div class="chart-actions">
+                <button id="exportChart">차트 내보내기</button>
+            </div>
+        </div>
+        <div class="chart-wrapper">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+    <!-- 데이터 정보 -->
+    <div class="data-info">
+        <h3>데이터 정보</h3>
+        <div id="dataInfo"></div>
+    </div>
+
+    <!-- 요청 기록 -->
+    <div class="request-history">
+        <h3>최근 요청 기록</h3>
+        <div id="requestLog"></div>
+    </div>
+</div>
+
+<script src="/js/chart.js"></script>
+</body>
+</html>
