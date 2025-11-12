@@ -185,6 +185,37 @@ public class SecurityConfig {
 를 다루면 됩니다.
 
 ---
+# 추가 설명
 
-원하시나요?
-제가 **2단계: 사용자 인증 커스터마이징 (UserDetailsService, PasswordEncoder 등)** 으로 이어서 정리해드릴게요.
+`SecurityConfig` 클래스가 없어도 스프링 시큐리티는 기본 로그인 과정을 자동으로 설정합니다.**
+
+---
+
+### 🔎 이유
+Spring Security는 **자동 설정(Auto-Configuration)** 기능을 가지고 있습니다.  
+- `spring-boot-starter-security` 의존성을 추가하면, 별도의 설정이 없어도 **기본 보안 필터 체인(SecurityFilterChain)** 이 등록됩니다.  
+- 이 기본 설정은 다음을 포함합니다:
+  - 모든 요청은 인증 필요 (`anyRequest().authenticated()`)
+  - 기본 로그인 폼 제공 (`formLogin()` 자동 적용)
+  - 기본 로그아웃 기능 제공
+  - 기본 사용자 계정 생성 (`user` / 콘솔에 출력되는 랜덤 비밀번호)
+
+즉, `SecurityConfig`를 작성하지 않아도 **자동으로 로그인 화면이 뜨고, 기본 계정으로 로그인할 수 있습니다.**
+
+---
+
+### ✅ 차이점
+- **SecurityConfig 없음** → Spring Boot가 제공하는 **디폴트 설정**이 적용됨.
+- **SecurityConfig 있음** → 개발자가 원하는 방식으로 커스터마이징 가능.  
+  예를 들어:
+  - 특정 URL은 인증 없이 접근 가능하게 (`permitAll()`)
+  - 로그인 페이지를 커스텀 HTML로 교체
+  - OAuth2, JWT 같은 다른 인증 방식 추가
+
+---
+
+### 🚀 정리
+- `SecurityConfig`가 없어도 로그인 과정은 자동 설정됩니다.
+- 다만, 프로젝트 요구사항에 맞게 **커스터마이징하려면 SecurityConfig를 작성**해야 합니다.
+
+---
