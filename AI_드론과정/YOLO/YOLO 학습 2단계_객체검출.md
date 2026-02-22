@@ -54,6 +54,8 @@ def compare_yolo_models():
 
 ### 실습 2: 단일 이미지 검출
 ```python
+
+from pathlib import Path
 from ultralytics import YOLO
 import cv2
 import matplotlib.pyplot as plt
@@ -63,21 +65,28 @@ from io import BytesIO
 
 def download_sample_image():
     """
-    테스트용 샘플 이미지 다운로드
+    src가 URL이면 다운로드해서 out_path로 저장.
+    로컬 경로면 존재 확인 후 그대로 반환.
     """
-    # 샘플 이미지 URL (무료 이미지)
-    url = "https://ultralytics.com/images/bus.jpg"
+    src = "img/traffic.jpg"
+    # src = "https://ultralytics.com/images/bus.jpg"
     
-    try:
-        response = requests.get(url)
-        img = Image.open(BytesIO(response.content))
-        img.save('sample_image.jpg')
-        print("✓ 샘플 이미지 다운로드 완료: sample_image.jpg")
-        return 'sample_image.jpg'
-    except:
-        print("✗ 이미지 다운로드 실패")
-        return None
-
+    
+    if src.startswith("http://") or src.startswith("https://"):
+        print(f"샘플 이미지 다운로드: {src}")
+        r = requests.get(src, timeout=30)
+        r.raise_for_status()
+        img = Image.open(BytesIO(r.content)).convert("RGB")
+        img.save(out_path)
+        print(f"✓ 저장 완료: {out_path}")
+        return out_path
+    else:
+        p = Path(src)
+        if not p.exists():
+            raise FileNotFoundError(f"로컬 이미지 파일이 없습니다: {p.resolve()}")
+        print(f"로컬 이미지 사용: {p.resolve()}")
+        return str(p)
+      
 def detect_objects_in_image(image_path, model_name='yolov8n.pt'):
     """
     이미지에서 객체 검출 수행
@@ -172,9 +181,9 @@ def detect_objects_in_image(image_path, model_name='yolov8n.pt'):
     return results
 
 # 실행 예시
-# image_path = download_sample_image()
-# if image_path:
-#     results = detect_objects_in_image(image_path)
+image_path = download_sample_image()
+if image_path:
+     results = detect_objects_in_image(image_path)
 ```
 
 ## 3. 검출 파라미터 조정
