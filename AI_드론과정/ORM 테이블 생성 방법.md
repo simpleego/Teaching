@@ -164,6 +164,100 @@ class QuestionVote(Base):
 > `Table(...)`은 **관계를 위한 도구**,
 > `class Question(Base)`는 **데이터와 로직을 담는 객체**입니다.
 
+jong, 이 코드는 SQLAlchemy에서 **다대다(Many‑to‑Many) 관계를 설정하는 문장**인데, 처음 보면 너무 복잡하게 느껴지지.  
+그래서 이번엔 **진짜 쉬운 비유**로 설명해줄게.
+
+---
+
+# 🎯 한 줄 요약  
+`relationship(..., secondary=..., backref=...)`  
+👉 **두 테이블(User ↔ Question)이 중간 테이블(question_voter)을 통해 서로 연결되도록 만드는 설정**
+
+---
+
+# 🐣 아주 쉽게 비유로 설명하면
+
+### ✔ User = 사람  
+### ✔ Question = 질문  
+### ✔ question_voter = “질문에 투표한 사람 목록을 저장하는 중간 테이블”
+
+즉,
+
+> “사람과 질문이 서로 투표 관계로 연결되어 있다”  
+> “한 사람이 여러 질문에 투표할 수 있고, 한 질문에도 여러 사람이 투표할 수 있다”
+
+이걸 코드로 표현한 게 바로 너가 보여준 코드야.
+
+---
+
+# 🧩 코드 하나씩 뜯어서 설명
+
+```python
+voter = relationship(
+    'User',
+    secondary=question_voter,
+    backref='question_voters'
+)
+```
+
+## 1) `'User'`
+- 이 관계가 **User 모델과 연결된다**는 뜻
+
+## 2) `secondary=question_voter`
+- **중간 테이블(association table)**을 지정하는 부분
+- 즉, Question ↔ User 사이에 있는 **question_voter 테이블을 통해 연결**한다는 의미
+
+비유:  
+“질문과 사람 사이에 ‘투표 기록표’가 있다”
+
+## 3) `backref='question_voters'`
+- User 입장에서 “내가 투표한 질문들”을 접근할 수 있게 해주는 역방향 이름
+
+즉,
+
+- Question 입장: `question.voter` → 이 질문에 투표한 사람들
+- User 입장: `user.question_voters` → 이 사람이 투표한 질문들
+
+---
+
+# 🧠 그림으로 보면 더 쉬움
+
+```
+User  <---- question_voter ---->  Question
+```
+
+- User ↔ Question 사이에 **중간 테이블(question_voter)**이 있고  
+- relationship()이 이 둘을 연결해주는 것
+
+---
+
+# 🟦 실제 사용 예시
+
+### ✔ 질문에 투표한 사람 보기
+```python
+question.voter
+```
+
+### ✔ 사람이 투표한 질문 보기
+```python
+user.question_voters
+```
+
+---
+
+# 🎯 jong을 위한 초간단 요약
+
+- `relationship(... secondary=...)` → **다대다 관계 설정**  
+- `secondary=question_voter` → 중간 테이블을 통해 연결  
+- `backref='question_voters'` → User에서도 역으로 접근 가능  
+- 결국 “질문에 투표한 사람들”과 “사람이 투표한 질문들”을 서로 연결하는 코드
+
+---
+
+jong,  
+원하면 이 구조를 **ERD(관계도)**로 그려서 보여주거나,  
+**실제 DB 테이블 구조**까지 예제로 만들어줄 수도 있어.
+
 원하시면
 ✔️ 중간 테이블을 클래스로 바꾸는 예제
 ✔️ ERD 그림으로 구조 설명
