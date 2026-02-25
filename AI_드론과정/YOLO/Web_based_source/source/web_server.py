@@ -1,0 +1,254 @@
+import time
+import threading
+from typing import Optional, Dict, Any, List
+from fastapi.middleware.cors import CORSMiddleware
+
+import cv2
+import numpy as np
+import requests
+from fastapi import FastAPI, HTTPException
+from fastapi.responses import StreamingResponse, Response, JSONResponse
+
+from ultralytics import YOLO
+
+
+# =========================
+# 설정
+# =========================
+CAM_SERVER_MJPEG = "http://localhost:9001/mjpeg"
+RECONNECT_DELAY_SEC = 1.0
+MJPEG_READ_TIMEOUT = 10  # seconds
+
+# YOLO 모델 선택: 가볍게 시작(yolov8n.pt). 필요시 yolov8s.pt 등으로 변경
+MODEL_PATH = "yolov8n.pt"
+CONF_THRES = 0.25
+IOU_THRES = 0.45
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# =========================
+# 전역 캐시(최신 프레임)
+# =========================
+_lock = threading.Lock()
+_latest_bgr: Optional[np.ndarray] = None          # 최신 원본 프레임(BGR)
+_latest_jpeg: Optional[bytes] = None              # 최신 프레임 JPEG(bytes)
+_latest_ts: float = 0.0                           # 마지막 갱신 시각(Unix time)
+
+# 오버레이 캐시(마지막 detect 결과)
+_last_overlay_jpeg: Optional[bytes] = None
+_last_detection: Optional[Dict[str, Any]] = None
+_last_det_ts: float = 0.0
+
+# YOLO 모델 (서버 시작 시 로딩)
+model = YOLO(MODEL_PATH)
+
+
+# =========================
+# MJPEG 파서(바이트 스트림에서 JPEG 프레임 추출)
+# =========================
+def _iter_jpeg_frames_from_mjpeg(url: str):
+    """
+    MJPEG HTTP 스트림에서 JPEG 프레임을 추출해서 yield (jpg_bytes).
+    boundary를 신뢰하지 않고, JPEG SOI/EOI 마커로 잘라냄(현장에선 이게 더 견고한 편).
+    """
+    with requests.get(url, stream=True, timeout=MJPEG_READ_TIMEOUT) as r:
+        r.raise_for_status()
+        buf = bytearray()
+
+        for chunk in r.iter_content(chunk_size=4096):
+            if not chunk:
+                continue
+            buf.extend(chunk)
+
+            # JPEG 시작/끝 마커 찾기
+            while True:
+                soi = buf.find(b"\xff\xd8")  # Start Of Image
+                if soi == -1:
+                    # 버퍼에 이미지 시작이 없으면 과도한 버퍼 방지
+                    if len(buf) > 2_000_000:
+                        buf.clear()
+                    break
+
+                eoi = buf.find(b"\xff\xd9", soi + 2)  # End Of Image
+                if eoi == -1:
+                    # 아직 이미지 끝이 안 들어옴
+                    break
+
+                jpg = bytes(buf[soi:eoi + 2])
+                del buf[:eoi + 2]
+                yield jpg
+
+
+# =========================
+# 백그라운드: 프레임 캐시 유지(자동 재연결 포함)
+# =========================
+def _frame_cache_worker():
+    global _latest_bgr, _latest_jpeg, _latest_ts
+
+    while True:
+        try:
+            for jpg in _iter_jpeg_frames_from_mjpeg(CAM_SERVER_MJPEG):
+                # JPEG → BGR 디코드
+                arr = np.frombuffer(jpg, dtype=np.uint8)
+                bgr = cv2.imdecode(arr, cv2.IMREAD_COLOR)
+                if bgr is None:
+                    continue
+
+                with _lock:
+                    _latest_bgr = bgr
+                    _latest_jpeg = jpg
+                    _latest_ts = time.time()
+
+        except Exception as e:
+            # 끊김/타임아웃/서버 다운 등 → 재연결 루프
+            print(f"[frame_cache] stream error: {e} -> reconnecting in {RECONNECT_DELAY_SEC}s")
+            time.sleep(RECONNECT_DELAY_SEC)
+
+
+@app.on_event("startup")
+def _startup():
+    t = threading.Thread(target=_frame_cache_worker, daemon=True)
+    t.start()
+
+
+# =========================
+# 유틸: 최신 프레임 가져오기
+# =========================
+def _get_latest_frame(max_age_sec: float = 2.0) -> np.ndarray:
+    with _lock:
+        bgr = None if _latest_bgr is None else _latest_bgr.copy()
+        ts = _latest_ts
+
+    if bgr is None:
+        raise HTTPException(status_code=503, detail="No frame available yet.")
+    if (time.time() - ts) > max_age_sec:
+        raise HTTPException(status_code=503, detail=f"Frame too old ({time.time() - ts:.2f}s). Stream may be down.")
+    return bgr
+
+
+# =========================
+# (선택) 1단계 호환: MJPEG 프록시
+# =========================
+@app.get("/video")
+def video_proxy():
+    def gen():
+        # 최신 JPEG 캐시를 MJPEG로 재포장해서 송출(브라우저 <img>용)
+        boundary = b"frame"
+        while True:
+            with _lock:
+                jpg = _latest_jpeg
+            if jpg is None:
+                time.sleep(0.05)
+                continue
+
+            yield b"--" + boundary + b"\r\n"
+            yield b"Content-Type: image/jpeg\r\n\r\n"
+            yield jpg
+            yield b"\r\n"
+            time.sleep(1/15)
+
+    return StreamingResponse(gen(), media_type="multipart/x-mixed-replace; boundary=frame")
+
+
+# =========================
+# 최신 프레임 1장(원본)
+# =========================
+@app.get("/frame.jpg")
+def get_frame_jpg():
+    with _lock:
+        jpg = _latest_jpeg
+        ts = _latest_ts
+    if jpg is None:
+        raise HTTPException(status_code=503, detail="No frame available yet.")
+    # 캐시 프레임이 너무 오래되면 경고
+    if (time.time() - ts) > 2.0:
+        raise HTTPException(status_code=503, detail="Frame too old. Stream may be down.")
+    return Response(content=jpg, media_type="image/jpeg")
+
+
+# =========================
+# 2단계 핵심: 버튼 클릭 → 최신 프레임 1장 YOLO 추론 → JSON 반환
+# =========================
+@app.post("/detect_once")
+def detect_once():
+    global _last_overlay_jpeg, _last_detection, _last_det_ts
+
+    bgr = _get_latest_frame(max_age_sec=2.0)
+
+    # YOLO 추론
+    results = model.predict(
+        source=bgr,
+        conf=CONF_THRES,
+        iou=IOU_THRES,
+        verbose=False
+    )
+    r = results[0]
+
+    # 결과 JSON 구성
+    detections: List[Dict[str, Any]] = []
+    if r.boxes is not None and len(r.boxes) > 0:
+        boxes = r.boxes.xyxy.cpu().numpy()
+        confs = r.boxes.conf.cpu().numpy()
+        clss = r.boxes.cls.cpu().numpy().astype(int)
+
+        for (x1, y1, x2, y2), conf, cls_id in zip(boxes, confs, clss):
+            detections.append({
+                "class_id": int(cls_id),
+                "class_name": model.names[int(cls_id)],
+                "confidence": float(conf),
+                "bbox_xyxy": [float(x1), float(y1), float(x2), float(y2)]
+            })
+
+    payload = {
+        "timestamp": time.time(),
+        "image": {
+            "width": int(bgr.shape[1]),
+            "height": int(bgr.shape[0]),
+        },
+        "detections": detections
+    }
+
+    # 오버레이 이미지 생성(선택 기능이지만 보통 같이 필요)
+    overlay = bgr.copy()
+    for d in detections:
+        x1, y1, x2, y2 = map(int, d["bbox_xyxy"])
+        label = f'{d["class_name"]} {d["confidence"]:.2f}'
+        cv2.rectangle(overlay, (x1, y1), (x2, y2), (0, 255, 0), 2)
+        cv2.putText(overlay, label, (x1, max(0, y1 - 7)),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+
+    ok, jpg = cv2.imencode(".jpg", overlay, [int(cv2.IMWRITE_JPEG_QUALITY), 85])
+    if ok:
+        with _lock:
+            _last_overlay_jpeg = jpg.tobytes()
+            _last_detection = payload
+            _last_det_ts = time.time()
+
+    return JSONResponse(payload)
+
+
+# =========================
+# 마지막 detect 오버레이 이미지
+# =========================
+@app.get("/detect_once_image.jpg")
+def detect_once_image():
+    with _lock:
+        img = _last_overlay_jpeg
+        ts = _last_det_ts
+    if img is None:
+        raise HTTPException(status_code=404, detail="No detection image yet. Call POST /detect_once first.")
+    # 너무 오래된 결과는 상황에 따라 410 Gone 등도 가능
+    if (time.time() - ts) > 60:
+        raise HTTPException(status_code=410, detail="Last detection image is too old.")
+    return Response(content=img, media_type="image/jpeg")
