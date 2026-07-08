@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커피 자판기</title>
+    <style>
+        @font-face {
+            font-family: NanumPenScript-Regular;
+            src: url(NanumPenScript-Regular.ttf);
+        }
+
+        #menu {
+            font-family: NanumPenScript-Regular, 맑은고딕;
+            font-weight: 900;
+            font-style: normal;
+            color: #4d1313;
+        }
+
+        .coffee article {
+            background-color: bisque;
+            padding: 10px;
+            border-color: rgb(235, 148, 42);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        #wrapper {
+            width: 600px;
+            margin: 0 auto;
+            padding: 10px;
+            border: 10px solid #ccc;
+        }
+
+        div {
+            width: 90%;
+            margin: 0 auto;
+            padding: 10px;
+            border: 10px solid #ccc;
+        }
+
+        article {
+            display: inline-block;
+            border: 1px solid #411010;
+            padding: 5px;
+            margin-right: 30px;
+        }
+
+        #output {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>커피 자판기</h1>
+        <div id="menu">
+            <div class="coffee">
+                <article>
+                    <img src="img/milkOut.png" alt="밀크커피">
+                    <h3>가격 : <span id="milkPrice"></span>원</h3>
+                    <button onclick="coffeeProc('밀크')" id="milk">밀크커피</button>
+                </article>
+                <article>
+                    <img src="img/sugarOut.png" alt="설탕커피">
+                    <h3>가격 : <span id="sugarPrice"></span>원</h3>
+                    <button onclick="coffeeProc('설탕')" id="sugar">설탕커피</button>
+                </article>
+                <article>
+                    <img src="img/blackOut.png" alt="블랙커피">
+                    <h3>가격 : <span id="blackPrice"></span>원</h3>
+                    <button onclick="coffeeProc('블랙')" id="black">블랙커피</button>
+                </article>
+            </div>
+        </div>
+        <div id="led">
+            <label for="coin">동전 : </label>
+            <input type="text" size="3" value="0" id="coin" placeholder="동전 입력">원
+            <button onclick="inMoney()">동전입력</button>
+            <label for="inMoney">
+                입력한 동전 :
+                <input type="text" readonly size="4" id="inMoney" value="0">원
+            </label>
+            <button onclick="exchangeCoins()">동전반환</button>
+        </div>
+        <div id="output">
+            <p>선택한 메뉴: <span id="coffeeOut"></span></p>
+            <textarea rows="10" cols="20" id="exchangeCoins"></textarea>
+        </div>
+    </div>
+</body>
+<script>
+    // 메뉴선택 처리
+
+    // 총입력한 동전
+    let totInMoney = 0;
+
+    // 자판기 판매금액 누적
+    let VMInMoney = 0;
+    const MILK_PRICE = 300;
+    const SUGAR_PRICE = 200;
+    const BLACK_PRICE = 100;
+
+    const coffeeNames = ['밀크', '설탕', '블랙'];
+
+    // 화면에 가격 표시 
+    document.querySelector("#milkPrice").innerText = MILK_PRICE;
+    document.querySelector("#sugarPrice").innerText = SUGAR_PRICE;
+    document.querySelector("#blackPrice").innerText = BLACK_PRICE;
+
+    function coffeeProc(coffeeName) {
+
+        coffeePrice = getPrice(coffeeName);
+
+        if(totInMoney >= coffeePrice) {
+            document.querySelector("#coffeeOut").innerHTML =
+            `${coffeeName} : " + ${coffeePrice} + "원 선택`;
+        }        
+
+        if (totInMoney >= coffeePrice) {
+            VMInMoney += coffeePrice;
+            totInMoney -= coffeePrice;
+            document.querySelector("#inMoney").value = totInMoney;
+        }
+    }
+
+    function getPrice(coffeeName){
+
+        let coffeePrice;
+
+        switch (coffeeName) {
+            case '밀크':
+                coffeePrice = MILK_PRICE;
+                break;
+            case '설탕':
+                coffeePrice = SUGAR_PRICE;
+                break;
+            case '블랙':
+                coffeePrice = BLACK_PRICE;
+                break;
+        }
+        return coffeePrice;
+    }
+
+
+    function inMoney() {
+
+        // 동전 입력 처리
+        let coin = document.querySelector("#coin").value;
+        console.log('-->' + coin);
+
+        // 동전 누적
+        totInMoney += parseInt(coin);
+        console.log('-->' + totInMoney);
+
+        // 동전 누적 출력
+        document.querySelector("#inMoney").value = totInMoney;
+
+        //
+    }
+
+    function exchangeCoins() {
+
+        let coins = document.querySelector("#inMoney").value;
+        document.querySelector("#inMoney").value = 0;
+
+        document.querySelector("#exchangeCoins").innerHTML = `${coins}`;
+    }
+</script>
+
+</html>

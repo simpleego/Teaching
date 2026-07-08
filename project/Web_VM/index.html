@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커피 자판기</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>커피 자판기</h1>
+        <div id="menu">
+            <div class="coffee">
+                <article>
+                    <img src="img/milkOut.png" alt="밀크커피">
+                    <h3>가격 : <span id="milkPrice"></span>원</h3>
+                    <button class="coffeeBtn" id="milk">밀크커피</button>
+                </article>
+                <article>
+                    <img src="img/sugarOut.png" alt="설탕커피">
+                    <h3>가격 : <span id="sugarPrice"></span>원</h3>
+                    <button class="coffeeBtn" id="sugar">설탕커피</button>
+                </article>
+                <article>
+                    <img src="img/blackOut.png" alt="블랙커피">
+                    <h3>가격 : <span id="blackPrice"></span>원</h3>
+                    <button class="coffeeBtn" id="black">블랙커피</button>
+                </article>
+            </div>
+        </div>
+        <div id="led">
+            <label for="coin">동전 : </label>
+            <input type="text" size="3" value="0" id="coin" placeholder="동전 입력">원
+            <button id="inputMoney">동전입력</button>
+
+            <label for="inMoney">
+                투입금액 :
+                <input type="text" readonly size="4" id="inMoney" value="0">원
+            </label>
+
+        </div>
+        <div id="coinBox">
+            <div id="coins">
+                <img class="coin" draggable="true" src="img/coin500.png" id="coin500" alt="500원">
+                <img class="coin" draggable="true" src="img/coin100.png" id="coin100" alt="100원">
+                <img class="coin" draggable="true" src="img/coin50.png" id="coin50" alt="50원">
+            </div>
+            <div id="inCoins">
+                <div id="slot"></div>
+            </div>
+        </div>
+
+        <div id="output">
+            <div id="outCoffees">
+                <div id="outCoffee" style="visibility: hidden;">
+                    <img class="imgCoffee" src="img/milkOut.png">
+                </div>
+            </div>
+            <div id="outCoins">
+                <p><button id="exchangCoins"></button></p>
+                <textarea rows="15" cols="30" id="exchangeCoins"></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/script.js">
+</script>
+
+</html>
