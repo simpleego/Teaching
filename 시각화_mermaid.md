@@ -328,6 +328,466 @@ mindmap
 
 ---
 
+전경 텍스트를 검정색(#212121) 또는 흰색(#ffffff)으로 대비를 명확히 하여 두 테마를 다시 만들어 드리겠습니다.
+
+---
+
+# 🍊 오렌지 테마 (대비 개선)
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#fff3e0',
+    'primaryTextColor': '#212121',
+    'primaryBorderColor': '#ff9800',
+    'lineColor': '#f57c00',
+    'secondaryColor': '#ffe0b2',
+    'tertiaryColor': '#fff8e1',
+    'background': '#fff8e1',
+    'mainBkg': '#fff3e0',
+    'secondBkg': '#ffe0b2',
+    'nodeBorder': '#ff9800',
+    'clusterBkg': '#ffecb3',
+    'clusterBorder': '#ffa726',
+    'titleColor': '#e65100',
+    'edgeLabelBackground': '#ffffff',
+    'nodeTextColor': '#212121',
+    'sectionBkgColor': '#fff3e0',
+    'altSectionBkgColor': '#ffe0b2',
+    'gridColor': '#ffb74d',
+    'todayLineColor': '#e65100',
+    'taskBkgColor': '#ffcc80',
+    'taskTextColor': '#212121',
+    'taskTextLightColor': '#424242',
+    'taskTextOutsideColor': '#212121',
+    'activeTaskBkgColor': '#ffa726',
+    'activeTaskBorderColor': '#ef6c00',
+    'section0': '#fff3e0',
+    'section1': '#ffe0b2',
+    'section2': '#ffcc80',
+    'section3': '#ffb74d'
+  }
+} }%%
+
+flowchart TD
+    A[시작] --> B{조건 확인}
+    B -->|Yes| C[처리 A]
+    B -->|No| D[처리 B]
+    C --> E[종료]
+    D --> E
+    
+    style A fill:#fff3e0,stroke:#ff9800,stroke-width:2px,color:#212121
+    style B fill:#ffe0b2,stroke:#f57c00,stroke-width:2px,color:#212121
+    style C fill:#fff3e0,stroke:#ff9800,stroke-width:2px,color:#212121
+    style D fill:#fff3e0,stroke:#ff9800,stroke-width:2px,color:#212121
+    style E fill:#ffcc80,stroke:#ef6c00,stroke-width:2px,color:#212121
+```
+
+---
+
+### 오렌지 테마 - Mindmap 예시
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#fff3e0',
+    'primaryTextColor': '#212121',
+    'primaryBorderColor': '#ff9800',
+    'lineColor': '#f57c00',
+    'secondaryColor': '#ffe0b2',
+    'tertiaryColor': '#fff8e1',
+    'background': '#fff8e1'
+  }
+} }%%
+
+mindmap
+  root((MoSCoW<br/>우선순위 결정 기법))
+    M[Must Have<br/>필수]
+      M1["프로젝트 없이는<br/>성립 불가능한 기능"]
+      M2["법적/규제적<br/>요구사항 포함"]
+      M3["최소 사용 가능<br/>부분집합(MUST)"]
+      M4["⚠️ 전체 노력의<br/>최대 60% 권장"]
+    S[Should Have<br/>중요]
+      S1["매우 중요하지만<br/>필수는 아님"]
+      S2["다음 릴리즈로<br/>미룰 수 있음"]
+      S3["임시 해결책으로<br/>대체 가능"]
+      S4["가치 제공은<br/>확실함"]
+    C[Could Have<br/>선택]
+      C1["있으면 좋은<br/>기능 (Nice-to-have)"]
+      C2["사용자 경험<br/>향상 효과"]
+      C3["리소스 여유 시<br/>포함 가능"]
+      C4["⚠️ 전체 노력의<br/>약 20% 권장"]
+    W[Won't Have<br/>제외]
+      W1["현재 릴리즈에서<br/>제외됨"]
+      W2["향후 릴리즈에서<br/>고려 가능"]
+      W3["효과 대비<br/>투입 리소스 과다"]
+      W4["범위 확장<br/>방지 (Scope Creep)"]
+```
+
+---
+
+### 오렌지 테마 - Gantt Chart 예시
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#fff3e0',
+    'primaryTextColor': '#212121',
+    'primaryBorderColor': '#ff9800',
+    'lineColor': '#f57c00',
+    'secondaryColor': '#ffe0b2',
+    'tertiaryColor': '#fff8e1',
+    'background': '#fff8e1',
+    'sectionBkgColor': '#fff3e0',
+    'altSectionBkgColor': '#ffe0b2',
+    'gridColor': '#ffb74d',
+    'todayLineColor': '#e65100',
+    'taskBkgColor': '#ffcc80',
+    'taskTextColor': '#212121',
+    'taskTextLightColor': '#424242',
+    'taskTextOutsideColor': '#212121',
+    'activeTaskBkgColor': '#ffa726',
+    'activeTaskBorderColor': '#ef6c00',
+    'section0': '#fff3e0',
+    'section1': '#ffe0b2',
+    'section2': '#ffcc80',
+    'section3': '#ffb74d'
+  }
+} }%%
+
+gantt
+    title 프로젝트 일정 - 오렌지 테마
+    dateFormat  YYYY-MM-DD
+    section Must Have
+    기능 A 개발      :a1, 2026-08-03, 5d
+    기능 B 개발      :a2, after a1, 5d
+    section Should Have
+    기능 C 개발      :b1, after a2, 3d
+    기능 D 개발      :b2, after b1, 3d
+    section Could Have
+    기능 E 개발      :c1, after b2, 2d
+```
+
+---
+
+### 오렌지 테마 - Pie Chart 예시
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#fff3e0',
+    'primaryTextColor': '#212121',
+    'primaryBorderColor': '#ff9800',
+    'lineColor': '#f57c00',
+    'secondaryColor': '#ffe0b2',
+    'tertiaryColor': '#fff8e1',
+    'background': '#fff8e1',
+    'pieOuterStrokeWidth': '2px',
+    'pieTitleTextSize': '25px',
+    'pieTitleTextColor': '#e65100',
+    'pieSectionTextSize': '17px',
+    'pieSectionTextColor': '#212121',
+    'pieStrokeColor': '#ff9800',
+    'pieStrokeWidth': '2px'
+  }
+} }%%
+
+pie title MoSCoW 분배 - 오렌지 테마
+    "Must Have" : 60
+    "Should Have" : 20
+    "Could Have" : 20
+```
+
+---
+
+### 오렌지 테마 - ClassDef 활용 예시
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#fff3e0',
+    'primaryTextColor': '#212121',
+    'primaryBorderColor': '#ff9800',
+    'lineColor': '#f57c00',
+    'secondaryColor': '#ffe0b2',
+    'tertiaryColor': '#fff8e1',
+    'background': '#fff8e1'
+  }
+} }%%
+
+flowchart TD
+    classDef orange1 fill:#fff3e0,stroke:#ff9800,stroke-width:2px,color:#212121
+    classDef orange2 fill:#ffe0b2,stroke:#f57c00,stroke-width:2px,color:#212121
+    classDef orange3 fill:#ffcc80,stroke:#ef6c00,stroke-width:2px,color:#212121
+    classDef orange4 fill:#ffb74d,stroke:#e65100,stroke-width:2px,color:#212121
+    classDef highlight fill:#ffa726,stroke:#e65100,stroke-width:3px,color:#212121
+    
+    A[Must Have]:::orange1
+    B[Should Have]:::orange2
+    C[Could Have]:::orange3
+    D[Won't Have]:::orange4
+    E[핵심 기능]:::highlight
+    
+    A --> B --> C --> D
+    A --> E
+```
+
+---
+
+# 🌸 핑크 테마 (대비 개선)
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#fce4ec',
+    'primaryTextColor': '#212121',
+    'primaryBorderColor': '#e91e63',
+    'lineColor': '#d81b60',
+    'secondaryColor': '#f8bbd9',
+    'tertiaryColor': '#fff0f5',
+    'background': '#fff0f5',
+    'mainBkg': '#fce4ec',
+    'secondBkg': '#f8bbd9',
+    'nodeBorder': '#e91e63',
+    'clusterBkg': '#f48fb1',
+    'clusterBorder': '#ec407a',
+    'titleColor': '#c2185b',
+    'edgeLabelBackground': '#ffffff',
+    'nodeTextColor': '#212121',
+    'sectionBkgColor': '#fce4ec',
+    'altSectionBkgColor': '#f8bbd9',
+    'gridColor': '#f48fb1',
+    'todayLineColor': '#c2185b',
+    'taskBkgColor': '#f8bbd9',
+    'taskTextColor': '#212121',
+    'taskTextLightColor': '#424242',
+    'taskTextOutsideColor': '#212121',
+    'activeTaskBkgColor': '#f48fb1',
+    'activeTaskBorderColor': '#ad1457',
+    'section0': '#fce4ec',
+    'section1': '#f8bbd9',
+    'section2': '#f48fb1',
+    'section3': '#f06292'
+  }
+} }%%
+
+flowchart TD
+    A[시작] --> B{조건 확인}
+    B -->|Yes| C[처리 A]
+    B -->|No| D[처리 B]
+    C --> E[종료]
+    D --> E
+    
+    style A fill:#fce4ec,stroke:#e91e63,stroke-width:2px,color:#212121
+    style B fill:#f8bbd9,stroke:#d81b60,stroke-width:2px,color:#212121
+    style C fill:#fce4ec,stroke:#e91e63,stroke-width:2px,color:#212121
+    style D fill:#fce4ec,stroke:#e91e63,stroke-width:2px,color:#212121
+    style E fill:#f48fb1,stroke:#ad1457,stroke-width:2px,color:#212121
+```
+
+---
+
+### 핑크 테마 - Mindmap 예시
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#fce4ec',
+    'primaryTextColor': '#212121',
+    'primaryBorderColor': '#e91e63',
+    'lineColor': '#d81b60',
+    'secondaryColor': '#f8bbd9',
+    'tertiaryColor': '#fff0f5',
+    'background': '#fff0f5'
+  }
+} }%%
+
+mindmap
+  root((MoSCoW<br/>우선순위 결정 기법))
+    M[Must Have<br/>필수]
+      M1["프로젝트 없이는<br/>성립 불가능한 기능"]
+      M2["법적/규제적<br/>요구사항 포함"]
+      M3["최소 사용 가능<br/>부분집합(MUST)"]
+      M4["⚠️ 전체 노력의<br/>최대 60% 권장"]
+    S[Should Have<br/>중요]
+      S1["매우 중요하지만<br/>필수는 아님"]
+      S2["다음 릴리즈로<br/>미룰 수 있음"]
+      S3["임시 해결책으로<br/>대체 가능"]
+      S4["가치 제공은<br/>확실함"]
+    C[Could Have<br/>선택]
+      C1["있으면 좋은<br/>기능 (Nice-to-have)"]
+      C2["사용자 경험<br/>향상 효과"]
+      C3["리소스 여유 시<br/>포함 가능"]
+      C4["⚠️ 전체 노력의<br/>약 20% 권장"]
+    W[Won't Have<br/>제외]
+      W1["현재 릴리즈에서<br/>제외됨"]
+      W2["향후 릴리즈에서<br/>고려 가능"]
+      W3["효과 대비<br/>투입 리소스 과다"]
+      W4["범위 확장<br/>방지 (Scope Creep)"]
+```
+
+---
+
+### 핑크 테마 - Gantt Chart 예시
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#fce4ec',
+    'primaryTextColor': '#212121',
+    'primaryBorderColor': '#e91e63',
+    'lineColor': '#d81b60',
+    'secondaryColor': '#f8bbd9',
+    'tertiaryColor': '#fff0f5',
+    'background': '#fff0f5',
+    'sectionBkgColor': '#fce4ec',
+    'altSectionBkgColor': '#f8bbd9',
+    'gridColor': '#f48fb1',
+    'todayLineColor': '#c2185b',
+    'taskBkgColor': '#f8bbd9',
+    'taskTextColor': '#212121',
+    'taskTextLightColor': '#424242',
+    'taskTextOutsideColor': '#212121',
+    'activeTaskBkgColor': '#f48fb1',
+    'activeTaskBorderColor': '#ad1457',
+    'section0': '#fce4ec',
+    'section1': '#f8bbd9',
+    'section2': '#f48fb1',
+    'section3': '#f06292'
+  }
+} }%%
+
+gantt
+    title 프로젝트 일정 - 핑크 테마
+    dateFormat  YYYY-MM-DD
+    section Must Have
+    기능 A 개발      :a1, 2026-08-03, 5d
+    기능 B 개발      :a2, after a1, 5d
+    section Should Have
+    기능 C 개발      :b1, after a2, 3d
+    기능 D 개발      :b2, after b1, 3d
+    section Could Have
+    기능 E 개발      :c1, after b2, 2d
+```
+
+---
+
+### 핑크 테마 - Pie Chart 예시
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#fce4ec',
+    'primaryTextColor': '#212121',
+    'primaryBorderColor': '#e91e63',
+    'lineColor': '#d81b60',
+    'secondaryColor': '#f8bbd9',
+    'tertiaryColor': '#fff0f5',
+    'background': '#fff0f5',
+    'pieOuterStrokeWidth': '2px',
+    'pieTitleTextSize': '25px',
+    'pieTitleTextColor': '#c2185b',
+    'pieSectionTextSize': '17px',
+    'pieSectionTextColor': '#212121',
+    'pieStrokeColor': '#e91e63',
+    'pieStrokeWidth': '2px'
+  }
+} }%%
+
+pie title MoSCoW 분배 - 핑크 테마
+    "Must Have" : 60
+    "Should Have" : 20
+    "Could Have" : 20
+```
+
+---
+
+### 핑크 테마 - ClassDef 활용 예시
+
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#fce4ec',
+    'primaryTextColor': '#212121',
+    'primaryBorderColor': '#e91e63',
+    'lineColor': '#d81b60',
+    'secondaryColor': '#f8bbd9',
+    'tertiaryColor': '#fff0f5',
+    'background': '#fff0f5'
+  }
+} }%%
+
+flowchart TD
+    classDef pink1 fill:#fce4ec,stroke:#e91e63,stroke-width:2px,color:#212121
+    classDef pink2 fill:#f8bbd9,stroke:#d81b60,stroke-width:2px,color:#212121
+    classDef pink3 fill:#f48fb1,stroke:#ad1457,stroke-width:2px,color:#212121
+    classDef pink4 fill:#f06292,stroke:#c2185b,stroke-width:2px,color:#212121
+    classDef highlight fill:#ec407a,stroke:#880e4f,stroke-width:3px,color:#ffffff
+    
+    A[Must Have]:::pink1
+    B[Should Have]:::pink2
+    C[Could Have]:::pink3
+    D[Won't Have]:::pink4
+    E[핵심 기능]:::highlight
+    
+    A --> B --> C --> D
+    A --> E
+```
+
+---
+
+## 🎨 수정된 색상 팔레트 비교
+
+### 오렌지 테마 색상 팔레트 (대비 개선)
+
+| 용도 | 배경색 | 테두리색 | 텍스트색 |
+|------|--------|----------|----------|
+| 배경 | `#fff8e1` | - | - |
+| 주요 노드 | `#fff3e0` | `#ff9800` | **검정 `#212121`** |
+| 보조 노드 | `#ffe0b2` | `#f57c00` | **검정 `#212121`** |
+| 강조 노드 | `#ffcc80` | `#ef6c00` | **검정 `#212121`** |
+| 어두운 노드 | `#ffb74d` | `#e65100` | **검정 `#212121`** |
+| 하이라이트 | `#ffa726` | `#e65100` | **검정 `#212121`** |
+| 선 | - | `#f57c00` | - |
+| 제목 | - | - | `#e65100` |
+
+### 핑크 테마 색상 팔레트 (대비 개선)
+
+| 용도 | 배경색 | 테두리색 | 텍스트색 |
+|------|--------|----------|----------|
+| 배경 | `#fff0f5` | - | - |
+| 주요 노드 | `#fce4ec` | `#e91e63` | **검정 `#212121`** |
+| 보조 노드 | `#f8bbd9` | `#d81b60` | **검정 `#212121`** |
+| 강조 노드 | `#f48fb1` | `#ad1457` | **검정 `#212121`** |
+| 어두운 노드 | `#f06292` | `#c2185b` | **검정 `#212121`** |
+| 하이라이트 | `#ec407a` | `#880e4f` | **흰색 `#ffffff`** |
+| 선 | - | `#d81b60` | - |
+| 제목 | - | - | `#c2185b` |
+
+---
+
+## 💡 핵심 변경 사항
+
+| 항목 | 이전 | 변경 후 |
+|------|------|---------|
+| `primaryTextColor` | `#e65100` (오렌지) / `#c2185b` (핑크) | `#212121` (검정) |
+| `nodeTextColor` | `#bf360c` (오렌지) / `#880e4f` (핑크) | `#212121` (검정) |
+| `taskTextColor` | `#e65100` (오렌지) / `#c2185b` (핑크) | `#212121` (검정) |
+| `taskTextLightColor` | `#f57c00` (오렌지) / `#d81b60` (핑크) | `#424242` (진한 회색) |
+| 하이라이트 노드 텍스트 | - | `#ffffff` (흰색) - 배경이 어두울 때 |
+
+이제 모든 전경 텍스트는 **검정색(#212121)** 또는 **흰색(#ffffff)**으로 설정되어 배경색과 명확한 대비를 제공합니다. 특히 핑크 테마의 `highlight` 클래스는 배경색(`#ec407a`)이 어두우므로 텍스트를 흰색으로 설정하여 가독성을 확보했습니다.
+
 ## 💡 팁
 
 1. **GitHub/GitLab Markdown**에서 사용 시: `%%{init}%%` 구문이 지원되지 않을 수 있으므로, `style`이나 `classDef`를 사용하세요.
