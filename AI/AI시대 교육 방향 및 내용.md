@@ -1,22 +1,22 @@
 # AI시대 교육 방향 및 내용
 
-① Computer Fundamentals
-   OS / Network / DB / SW Architecture
+① Computer Fundamentals 
+   OS / Network / DB / SW Architecture 
             ↓
-② Programming Fundamentals
-   Python / Java / Algorithm / OOP
+② Programming Fundamentals 
+   Python / Java / Algorithm / OOP 
             ↓
-③ Software Engineering
-   API / Git / Testing / CI/CD
+③ Software Engineering 
+   API / Git / Testing / CI/CD 
             ↓
-④ AI-assisted Development
-   Coding Agent / Context Engineering
+④ AI-assisted Development 
+   Coding Agent / Context Engineering 
             ↓
-⑤ Agent Engineering
-   Tools / MCP / Multi-Agent
+⑤ Agent Engineering 
+   Tools / MCP / Multi-Agent 
             ↓
-⑥ Loop Engineering
-   Goal → Execute → Test → Evaluate → Repeat
+⑥ Loop Engineering 
+   Goal → Execute → Test → Evaluate → Repeat 
             ↓
-⑦ AI System Architecture
-   Security / Observability / Governance
+⑦ AI System Architecture 
+   Security / Observability / Governance 
