@@ -1,6 +1,7 @@
-GitHub의 **Actions**는 저장소에서 발생하는 이벤트를 기준으로 **빌드, 테스트, 배포, 코드 검사 등의 작업을 자동 실행하는 CI/CD 플랫폼**입니다. GitHub 공식 문서도 Actions를 CI/CD 파이프라인을 자동화하는 기능으로 정의하고 있으며, Linux·Windows·macOS GitHub-hosted runner 또는 자체 서버의 self-hosted runner를 사용할 수 있습니다. ([GitHub Docs][1])
-
-앞에서 이야기한 **Docker + FastAPI + AI 모델 + Google Cloud 배포**와 연결하면 GitHub Actions의 필요성이 훨씬 명확해집니다.
+# 배포자동화_Github_Actions
+> GitHub의 **Actions**는 저장소에서 발생하는 이벤트를 기준으로 **빌드, 테스트, 배포, 코드 검사 등의 작업을 자동 실행하는 CI/CD 플랫폼**입니다.
+> GitHub 공식 문서도 Actions를 CI/CD 파이프라인을 자동화하는 기능으로 정의하고 있으며, Linux·Windows·macOS GitHub-hosted runner 또는 자체 서버의 self-hosted runner를 사용할 수 있습니다. ([GitHub Docs][1])
+> 앞에서 이야기한 **Docker + FastAPI + AI 모델 + Google Cloud 배포**와 연결하면 GitHub Actions의 필요성이 훨씬 명확해집니다.
 
 ---
 
