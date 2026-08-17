@@ -335,7 +335,7 @@ flowchart LR
 
 지금 사용하고 계신 색상 계열이라면 다음처럼 미리 만들어 두는 것이 편합니다.
 
-```text
+```mermaid
 flowchart LR
 
     A["문제 발견"] --> B["아이디어"]
@@ -393,7 +393,7 @@ flowchart LR
 
 ### 방법 ① 나중에 class 지정
 
-```text
+```mermaid
 flowchart LR
     A["사용자"] --> B["AI"]
 
@@ -406,7 +406,7 @@ flowchart LR
 
 보다 간결해서 제가 추천하는 방식입니다.
 
-```text
+```mermaid
 flowchart LR
     A["사용자"]:::user --> B["AI"]:::ai
 
