@@ -344,35 +344,10 @@ flowchart LR
     D --> E["프로토타입"]
 
     classDef orange fill:#F6B768,stroke:#EB7D00,stroke-width:2px,color:#4A2A00,font-size:18px,font-weight:bold;
-
-    classDef green
-        fill:#DCEAE4,
-        stroke:#2C5745,
-        stroke-width:2px,
-        color:#16382A,
-        font-size:18px,
-        font-weight:bold;
-
-    classDef blue
-        fill:#E8F0FE,
-        stroke:#6B8FD6,
-        stroke-width:2px,
-        color:#1F2937,
-        font-size:18px;
-
-    classDef yellow
-        fill:#FFF7D6,
-        stroke:#D9B44A,
-        stroke-width:2px,
-        color:#493B12,
-        font-size:18px;
-
-    classDef gray
-        fill:#F3F4F6,
-        stroke:#9CA3AF,
-        stroke-width:1px,
-        color:#374151,
-        font-size:18px;
+    classDef green fill:#DCEAE4,stroke:#2C5745,stroke-width:2px,color:#16382A,font-size:18px,font-weight:bold;
+    classDef blue fill:#E8F0FE,stroke:#6B8FD6, stroke-width:2px, color:#1F2937, font-size:18px;
+    classDef yellow fill:#FFF7D6,stroke:#D9B44A,stroke-width:2px,color:#493B12,font-size:18px;
+    classDef gray fill:#F3F4F6,stroke:#9CA3AF,stroke-width:1px,color:#374151,font-size:18px;
 
     class A orange;
     class B green;
