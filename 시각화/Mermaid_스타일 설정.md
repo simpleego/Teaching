@@ -343,13 +343,7 @@ flowchart LR
     C --> D["서비스 설계"]
     D --> E["프로토타입"]
 
-    classDef orange 
-        fill:#F6B768,
-        stroke:#EB7D00,
-        stroke-width:2px,
-        color:#4A2A00,
-        font-size:18px,
-        font-weight:bold;
+    classDef orange fill:#F6B768,stroke:#EB7D00,stroke-width:2px,color:#4A2A00,font-size:18px,font-weight:bold;
 
     classDef green
         fill:#DCEAE4,
