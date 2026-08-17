@@ -309,7 +309,7 @@ classDef box stroke:#333,stroke-opacity:0.5;
 
 실제로는 아래와 같이 조합하는 것이 일반적입니다.
 
-```text
+```mermaid
 flowchart LR
 
     A["사용자 문제"]
