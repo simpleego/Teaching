@@ -358,7 +358,7 @@ flowchart LR
 
 ---
 
-## 16. `classDef` 사용 문법 3가지
+# 16. `classDef` 사용 문법 3가지
 
 ### 방법 ① 나중에 class 지정
 
