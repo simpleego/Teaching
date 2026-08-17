@@ -37,7 +37,7 @@ Mermaid 공식 예제에서도 `fill`, `stroke`, `stroke-width`, `color`, `font-
 
 ## 2. 배경색 `fill`
 
-```mermaid
+```text
 classDef box fill:#E8F5E9;
 ```
 
