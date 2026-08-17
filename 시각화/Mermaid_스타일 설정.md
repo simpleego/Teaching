@@ -5,7 +5,7 @@
 
 먼저 작성하신 코드에서 한 가지 수정할 부분이 있습니다.
 
-```mermaid
+```text
 classDef box1 fill:#EB7D00,stroke:#ddd,font-size:19px,color:#fff;
 classDef box2 fill:#2C5745,stroke:#333,font-size:19px,color:#fff;
 ```
