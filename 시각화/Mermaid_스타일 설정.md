@@ -54,7 +54,7 @@ fill:#E8F0FE     연한 파랑
 
 예:
 
-```mermaid
+```text
 flowchart LR
     A["AI 서비스"]
     
@@ -66,13 +66,13 @@ flowchart LR
 
 ## 3. 글자색 `color`
 
-```mermaid
+```text
 classDef box color:#ffffff;
 ```
 
 예:
 
-```mermaid
+```text
 classDef orange fill:#EB7D00,color:#fff;
 classDef green fill:#2C5745,color:#fff;
 ```
@@ -91,13 +91,13 @@ color:#1F2937    진한 남색 계열
 
 ## 4. 테두리 색 `stroke`
 
-```mermaid
+```text
 classDef box stroke:#333;
 ```
 
 CSS의 `border-color`와 비슷한 역할입니다.
 
-```mermaid
+```text
 classDef box fill:#E8F5E9,stroke:#2C5745;
 ```
 
@@ -105,13 +105,13 @@ classDef box fill:#E8F5E9,stroke:#2C5745;
 
 ## 5. 테두리 두께 `stroke-width`
 
-```mermaid
+```text
 classDef box stroke-width:2px;
 ```
 
 예:
 
-```mermaid
+```text
 classDef normal stroke-width:1px;
 classDef important stroke-width:3px;
 classDef veryImportant stroke-width:5px;
@@ -119,7 +119,7 @@ classDef veryImportant stroke-width:5px;
 
 Mermaid 공식 문서에서도 대표적으로 다음 패턴을 사용합니다. ([Mermaid][1])
 
-```mermaid
+```text
 classDef myStyle fill:#f9f,stroke:#333,stroke-width:4px;
 ```
 
@@ -127,7 +127,7 @@ classDef myStyle fill:#f9f,stroke:#333,stroke-width:4px;
 
 ## 6. 테두리를 점선으로 `stroke-dasharray`
 
-```mermaid
+```text
 classDef box stroke-dasharray:5\,5;
 ```
 
@@ -141,7 +141,7 @@ classDef box stroke-dasharray:5\,5;
 
 다양한 패턴:
 
-```mermaid
+```text
 classDef dot1 stroke-dasharray:2\,2;
 classDef dot2 stroke-dasharray:5\,5;
 classDef dot3 stroke-dasharray:10\,5;
@@ -154,19 +154,19 @@ Mermaid에서는 쉼표가 스타일 속성을 구분하는 문자이기 때문�
 
 # 7. 글자 크기 `font-size`
 
-```mermaid
+```text
 classDef box font-size:19px;
 ```
 
 또는
 
-```mermaid
+```text
 classDef box font-size:16pt;
 ```
 
 공식 문서에도 다음과 같은 문법이 소개되어 있습니다. ([Mermaid][2])
 
-```mermaid
+```text
 classDef firstClassName,secondClassName font-size:12pt;
 ```
 
@@ -184,13 +184,13 @@ classDef firstClassName,secondClassName font-size:12pt;
 
 # 8. 글자 굵기 `font-weight`
 
-```mermaid
+```text
 classDef box font-weight:bold;
 ```
 
 값은 일반적인 CSS 방식으로 사용할 수 있습니다.
 
-```mermaid
+```text
 classDef normal font-weight:normal;
 classDef strong font-weight:bold;
 ```
@@ -199,7 +199,7 @@ classDef strong font-weight:bold;
 
 강의자료에서는 다음 조합을 많이 사용할 수 있습니다.
 
-```mermaid
+```text
 classDef important fill:#EB7D00,color:#fff,font-weight:bold;
 ```
 
@@ -207,13 +207,13 @@ classDef important fill:#EB7D00,color:#fff,font-weight:bold;
 
 # 9. 기울임 `font-style`
 
-```mermaid
+```text
 classDef box font-style:italic;
 ```
 
 예:
 
-```mermaid
+```text
 classDef normal font-style:normal;
 classDef italic font-style:italic;
 ```
@@ -226,13 +226,13 @@ classDef italic font-style:italic;
 
 다음과 같이 설정할 수 있습니다.
 
-```mermaid
+```text
 classDef box font-family:Arial;
 ```
 
 또는
 
-```mermaid
+```text
 classDef box font-family:"Noto Sans KR";
 ```
 
@@ -240,7 +240,7 @@ classDef box font-family:"Noto Sans KR";
 
 예:
 
-```mermaid
+```text
 ---
 config:
   fontFamily: "Arial"
@@ -255,7 +255,7 @@ flowchart LR
 
 SVG/CSS 계열 스타일로 다음과 같은 투명도 속성을 사용할 수 있습니다.
 
-```mermaid
+```text
 classDef box opacity:0.7;
 ```
 
@@ -269,7 +269,7 @@ classDef box opacity:0.7;
 
 예:
 
-```mermaid
+```text
 classDef disabled fill:#ddd,opacity:0.5;
 ```
 
@@ -279,7 +279,7 @@ classDef disabled fill:#ddd,opacity:0.5;
 
 # 12. 배경만 투명하게 `fill-opacity`
 
-```mermaid
+```text
 classDef box fill:#EB7D00,fill-opacity:0.5;
 ```
 
@@ -297,7 +297,7 @@ fill-opacity
 
 # 13. 테두리 투명도 `stroke-opacity`
 
-```mermaid
+```text
 classDef box stroke:#333,stroke-opacity:0.5;
 ```
 
@@ -309,7 +309,7 @@ classDef box stroke:#333,stroke-opacity:0.5;
 
 실제로는 아래와 같이 조합하는 것이 일반적입니다.
 
-```mermaid
+```text
 flowchart LR
 
     A["사용자 문제"]
@@ -335,7 +335,7 @@ flowchart LR
 
 지금 사용하고 계신 색상 계열이라면 다음처럼 미리 만들어 두는 것이 편합니다.
 
-```mermaid
+```text
 flowchart LR
 
     A["문제 발견"] --> B["아이디어"]
@@ -393,7 +393,7 @@ flowchart LR
 
 ### 방법 ① 나중에 class 지정
 
-```mermaid
+```text
 flowchart LR
     A["사용자"] --> B["AI"]
 
@@ -406,7 +406,7 @@ flowchart LR
 
 보다 간결해서 제가 추천하는 방식입니다.
 
-```mermaid
+```text
 flowchart LR
     A["사용자"]:::user --> B["AI"]:::ai
 
@@ -418,7 +418,7 @@ flowchart LR
 
 ### 방법 ③ 기본 스타일 만들기
 
-```mermaid
+```text
 classDef default fill:#F5F5F5,stroke:#999,color:#333,font-size:18px;
 ```
 
@@ -445,7 +445,7 @@ font-style         글자 기울임
 
 즉, 사용자께서 지금 사용하고 있는 코드를 조금 확장하면 제가 가장 추천하는 기본형은 다음입니다.
 
-```mermaid
+```text
 classDef box1 fill:#EB7D00,stroke:#C26400,stroke-width:2px,color:#fff,font-size:19px,font-weight:bold;
 
 classDef box2 fill:#2C5745,stroke:#183B2D,stroke-width:2px,color:#fff,font-size:19px,font-weight:bold;
