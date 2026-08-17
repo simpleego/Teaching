@@ -12,7 +12,7 @@ classDef box2 fill:#2C5745,stroke:#333,font-size:19px,color:#fff;
 
 `color:fff`보다는 **`color:#fff`**로 작성하는 것이 정확합니다.
 
-## 1. Mermaid `classDef` 핵심 스타일
+# 1. Mermaid `classDef` 핵심 스타일
 
 실무에서는 아래 정도를 알고 있으면 대부분의 Mermaid 스타일링을 처리할 수 있습니다.
 
@@ -35,7 +35,7 @@ Mermaid 공식 예제에서도 `fill`, `stroke`, `stroke-width`, `color`, `font-
 
 ---
 
-## 2. 배경색 `fill`
+# 2. 배경색 `fill`
 
 ```text
 classDef box fill:#E8F5E9;
@@ -64,7 +64,7 @@ flowchart LR
 
 ---
 
-## 3. 글자색 `color`
+# 3. 글자색 `color`
 
 ```text
 classDef box color:#ffffff;
@@ -89,7 +89,7 @@ color:#1F2937    진한 남색 계열
 
 ---
 
-## 4. 테두리 색 `stroke`
+# 4. 테두리 색 `stroke`
 
 ```text
 classDef box stroke:#333;
@@ -103,7 +103,7 @@ classDef box fill:#E8F5E9,stroke:#2C5745;
 
 ---
 
-## 5. 테두리 두께 `stroke-width`
+# 5. 테두리 두께 `stroke-width`
 
 ```text
 classDef box stroke-width:2px;
@@ -125,7 +125,7 @@ classDef myStyle fill:#f9f,stroke:#333,stroke-width:4px;
 
 ---
 
-## 6. 테두리를 점선으로 `stroke-dasharray`
+# 6. 테두리를 점선으로 `stroke-dasharray`
 
 ```text
 classDef box stroke-dasharray:5\,5;
@@ -360,7 +360,7 @@ flowchart LR
 
 # 16. `classDef` 사용 문법 3가지
 
-### 방법 ① 나중에 class 지정
+## 방법 ① 나중에 class 지정
 
 ```mermaid
 flowchart LR
@@ -371,7 +371,7 @@ flowchart LR
     class A,B box;
 ```
 
-### 방법 ② 노드 선언과 동시에 지정
+## 방법 ② 노드 선언과 동시에 지정
 
 보다 간결해서 제가 추천하는 방식입니다.
 
@@ -385,7 +385,7 @@ flowchart LR
 
 `:::`를 이용해 노드 선언과 동시에 클래스를 연결하는 문법은 Mermaid Flowchart 공식 문법입니다. ([Mermaid][1])
 
-### 방법 ③ 기본 스타일 만들기
+## 방법 ③ 기본 스타일 만들기
 
 ```text
 classDef default fill:#F5F5F5,stroke:#999,color:#333,font-size:18px;
