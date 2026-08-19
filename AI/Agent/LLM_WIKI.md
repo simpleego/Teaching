@@ -1,6 +1,6 @@
 # LLM WIKI
 
----
+--- 
 
 <img width="100%" alt="image" src="https://github.com/user-attachments/assets/85408d91-95aa-47b8-833f-f00bef260754" />
 --- 
