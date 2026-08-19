@@ -1,5 +1,9 @@
 # LLM WIKI
 
+---
+
+[RAG_LLM_WIKI](https://github.com/user-attachments/assets/93a0a75b-b52c-487a-a0d0-031e9d0313d6)
+
 --- 
 
 <img width="100%" alt="image" src="https://github.com/user-attachments/assets/85408d91-95aa-47b8-833f-f00bef260754" /> 
