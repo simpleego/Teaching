@@ -2,7 +2,7 @@
 
 ---
 
-[RAG_LLM_WIKI](https://github.com/user-attachments/assets/93a0a75b-b52c-487a-a0d0-031e9d0313d6)
+[RAG_LLM_WIKI]("https://github.com/user-attachments/assets/93a0a75b-b52c-487a-a0d0-031e9d0313d6")
 
 --- 
 
