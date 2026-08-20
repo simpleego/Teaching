@@ -229,52 +229,9 @@ Agent 시대에는 프로그래머와 데이터 직무의 경계도 상당히 �
 
 개발자가 최소한 다음을 이해해야 합니다.
 
+---
+
 <img width="100%" alt="image" src="https://github.com/user-attachments/assets/50f89fb8-42d2-454c-b5a6-eb822d08402c" />
-
-
-```text
-Domain
-   ↓
-Entity
-   ↓
-Data
-   ↓
-Database
-   ↓
-API
-   ↓
-Application
-   ↓
-AI
-```
-
-예를 들어 쇼핑몰이라면
-
-```text
-Customer
-Product
-Order
-OrderItem
-Payment
-Delivery
-Review
-```
-
-를 찾아내고 관계를 이해해야 합니다.
-
-```text
-Customer
-   │
-   └── Order
-         │
-         ├── OrderItem ── Product
-         │
-         ├── Payment
-         │
-         └── Delivery
-```
-
-이러한 **Entity Relationship 사고**를 제대로 이해시키는 것이 SQL 문법 몇 개를 더 배우는 것보다 장기적으로 훨씬 중요할 수 있습니다.
 
 ---
 
