@@ -12,7 +12,7 @@
 
 따라서 개발자가
 
-```text
+```mermaid
 의료 개발자 → 의사가 될 정도로 의료 공부
 금융 개발자 → 금융전문가가 될 정도로 금융 공부
 물류 개발자 → 물류전문가가 될 정도로 물류 공부
@@ -22,7 +22,7 @@
 
 개발자가 필요한 정도는 오히려 이 수준입니다.
 
-```text
+```mermaid
 Domain Expert
 "결제가 승인되면 주문을 확정해야 합니다."
 
@@ -35,15 +35,33 @@ Developer
         ↓
 
 기술 문제
-
-Transaction
-Idempotency
-Rollback
-Message Queue
-Retry
-Consistency
-Logging
 ```
+```mermaid
+flowchart TB
+    A["Domain Expert<br/>결제가 승인되면 주문을 확정해야 합니다."]
+    B["Developer<br/>승인과 주문 DB 저장 사이에<br/>실패가 발생하면 어떻게 하지?"]
+    C["기술 문제"]
+    D["Transaction"]
+    E["Idempotency"]
+    F["Rollback"]
+    G["Message Queue"]
+    H["Retry"]
+    I["Consistency"]
+    J["Logging"]
+
+    A --> B
+    B --> C
+
+    C --> D
+    C --> E
+    C --> F
+    C --> G
+    C --> H
+    C --> I
+    C --> J
+```
+
+
 
 **여기부터가 개발자의 전문영역입니다.**
 
@@ -53,18 +71,28 @@ Logging
 
 AI가 다음을 대신할수록
 
-```text
-코드 문법
-CRUD 코드
-API boilerplate
-테스트 코드 초안
-리팩터링
-간단한 버그 수정
+```mermaid
+flowchart LR
+    A["AI / Agent"]
+
+    B["코드 문법"]
+    C["CRUD 코드"]
+    D["API Boilerplate"]
+    E["테스트 코드 초안"]
+    F["리팩터링"]
+    G["간단한 버그 수정"]
+
+    A --> B
+    A --> C
+    A --> D
+    A --> E
+    A --> F
+    A --> G
 ```
 
 개발자에게 남는 문제는 상대적으로 다음과 같이 됩니다.
 
-```text
+```mermaid
 왜 느린가?
 왜 메모리가 부족한가?
 왜 요청이 동시에 들어오면 오류가 나는가?
@@ -80,7 +108,7 @@ API boilerplate
 
 결국 밑으로 내려갑니다.
 
-```text
+```mermaid
 Application
      ↓
 Framework
@@ -110,7 +138,7 @@ Hardware
 
 반드시 이해하면 좋은 개념입니다.
 
-```text
+```mermaid
 Process
 Thread
 Context Switching
@@ -134,7 +162,7 @@ async def request():
 
 를 사용하는 이유도 단순히 `async` 문법을 외우는 것이 아니라
 
-```text
+```mermaid
 CPU 작업인가?
 I/O 작업인가?
 Thread가 필요한가?
@@ -150,7 +178,7 @@ Event Loop가 적절한가?
 
 현대 애플리케이션은 사실상 분산 시스템입니다.
 
-```text
+```mermaid
 Browser
    ↓
 DNS
@@ -172,7 +200,7 @@ Database
 
 따라서 다음 정도는 개발자의 핵심 기초라고 봅니다.
 
-```text
+```mermaid
 IP
 Port
 TCP / UDP
@@ -190,7 +218,7 @@ WebSocket
 
 예를 들어
 
-```text
+```mermaid
 CORS Error
 Connection Timeout
 502 Bad Gateway
@@ -206,7 +234,7 @@ TLS Error
 
 Agent가 SQL을 아주 잘 만들어주는 시대에도 개발자는 다음을 알아야 합니다.
 
-```text
+```mermaid
 Transaction
 ACID
 Index
@@ -231,7 +259,7 @@ WHERE customer_id = 100;
 
 개발자가 생각해야 하는 것은
 
-```text
+```mermaid
 Index가 있는가?
 Full Scan인가?
 Query Plan은?
@@ -253,7 +281,7 @@ Partition이 필요한가?
 
 예를 들어 LLM을 사용하다 보면 곧바로 다음 문제가 등장합니다.
 
-```text
+```mermaid
 CPU
 GPU
 VRAM
@@ -267,7 +295,7 @@ FP32 / FP16 / BF16 / INT8
 
 왜
 
-```text
+```mermaid
 70B 모델은 GPU 한 장에서 안 돌아가지?
 
 왜 Quantization을 하지?
@@ -293,7 +321,7 @@ FP32 / FP16 / BF16 / INT8
 
 단순히
 
-```text
+```mermaid
 Domain Knowledge ★★★★★
 ```
 
@@ -315,7 +343,7 @@ Domain Knowledge ★★★★★
 
 AI는 위쪽 계층을 점점 편하게 만들어줍니다.
 
-```text
+```mermaid
                  자연어
                    ↓
               AI Agent
@@ -346,13 +374,13 @@ AI가 위쪽의 복잡성을 감춰줄수록 사람이 문제가 발생했을 �
 
 예전에 Java 개발자들이
 
-```text
+```mermaid
 Spring이 알아서 해준다.
 ```
 
 라고 생각하다가 문제가 생기면
 
-```text
+```mermaid
 JVM
 GC
 Thread Pool
@@ -405,7 +433,7 @@ def users():
 
 이 코드 한 줄이 실제로 어떤 일을 발생시키는지 추적하게 합니다.
 
-```text
+```mermaid
 사용자 클릭
    ↓
 Browser
@@ -455,7 +483,7 @@ Response
 
 그리고 Agent 시대에는 개발자의 핵심 기술 기반을
 
-```text
+```mermaid
 Computer Architecture
         +
 Operating System
