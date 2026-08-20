@@ -10,7 +10,9 @@
 
 예를 들어 병원 시스템을 만든다고 하면 의사가 질병·진료 프로세스를 개발자보다 더 잘 알고, 금융 시스템에서는 은행원이 여신·결제·정산 업무를 더 잘 압니다.
 
-따라서 개발자가
+따라서 개발자가 모든 것을 알 수는 없지만 전반적인 업무 프로세스는 알고 있어야 한다. 결국 업무의 이해와 이를 시스템으로 성공적으로 전환하는 능력이 필요하다.
+
+## 의료 개발자
 
 ```mermaid
 flowchart LR
@@ -25,6 +27,37 @@ flowchart LR
     classDef medical fill:#FFEBEE,stroke:#C62828,stroke-width:2px,color:#B71C1C;
     classDef goal fill:#E8F5E9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20,font-weight:bold;
 ```
+---  
+## 금융 개발자
+```mermaid
+flowchart LR
+    A("‍💻 개발자<br>출발점"):::start --> B("📊 금융 기초<br>회계, 재무, 경제"):::finance
+    B --> C("📈 투자 분석<br>주식, 채권, 파생상품"):::finance
+    C --> D("⚠️ 리스크 관리<br>신용, 시장, 운영 리스크"):::finance
+    D --> E(" 금융 규제<br>바젤, IFRS, 금융법"):::finance
+    E --> F("💳 핀테크<br>블록체인, 결제, 뱅킹"):::finance
+    F --> G("👔 금융 전문가<br>수준 달성"):::goal
+
+    classDef start fill:#E3F2FD,stroke:#1565C0,stroke-width:3px,color:#0D47A1,font-weight:bold;
+    classDef finance fill:#FFF8E1,stroke:#F57F17,stroke-width:2px,color:#E65100;
+    classDef goal fill:#E8F5E9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20,font-weight:bold;
+```
+--- 
+## 물류 개발자
+```mermaid
+   flowchart LR
+    A("👨‍💻 개발자<br>출발점"):::start --> B("📦 물류 기초<br>창고, 운송, 재고"):::logistics
+    B --> C(" 공급망 관리<br>SCM, 조달, 생산"):::logistics
+    C --> D("🌐 글로벌 물류<br>통관, 무역, 해상/항공"):::logistics
+    D --> E("📋 물류 규제<br>관세법, 물류정책"):::logistics
+    E --> F("🤖 물류 IT<br>WMS, TMS, IoT, AI"):::logistics
+    F --> G(" 물류 전문가<br>수준 달성"):::goal
+
+    classDef start fill:#E3F2FD,stroke:#1565C0,stroke-width:3px,color:#0D47A1,font-weight:bold;
+    classDef logistics fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20;
+    classDef goal fill:#F3E5F5,stroke:#7B1FA2,stroke-width:3px,color:#4A148C,font-weight:bold;
+```
+
 
 할 필요는 없습니다.
 
