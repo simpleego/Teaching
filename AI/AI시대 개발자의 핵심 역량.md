@@ -698,7 +698,6 @@ graph LR
         AI[AI Agent]
     end
 
-    %% 의존성 연결
     CA --> OS
     OS --> Net
     OS --> DB
@@ -707,7 +706,6 @@ graph LR
     DS --> SA
     SA --> AI
 
-    %% 설명
     AI -.->|활용| DB
     AI -.->|호출| Net
 
