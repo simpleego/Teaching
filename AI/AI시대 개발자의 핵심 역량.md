@@ -387,10 +387,31 @@ flowchart TB
 를 이해하려면 결국 하드웨어 구조로 내려갑니다.
 
 그래서 AI 시대에는 오히려
+```mermaid
+flowchart LR
+    A["Software"]
+    B["Operating System"]
+    C["Hardware"]
 
-> **Software ↔ OS ↔ Hardware**
+    A <--> B
+    B <--> C
+```
 
 연결을 이해하는 사람이 강해질 가능성이 있습니다.
+
+```mermaid
+flowchart LR
+    A["Application"]
+    B["Runtime"]
+    C["Operating System"]
+    D["Driver"]
+    E["CPU / GPU / Memory"]
+
+    A <--> B
+    B <--> C
+    C <--> D
+    D <--> E
+```
 
 ---
 
@@ -421,30 +442,47 @@ Domain Knowledge ★★★★★
 AI는 위쪽 계층을 점점 편하게 만들어줍니다.
 
 ```mermaid
-                 자연어
-                   ↓
-              AI Agent
-                   ↓
-              Framework
-                   ↓
-                API
-                   ↓
-            Application
-──────────────────────────
-              개발자가
-           이해해야 할 영역
-──────────────────────────
-               Runtime
-                   ↓
-          Operating System
-                   ↓
-              Network
-                   ↓
-              Database
-                   ↓
-          CPU / GPU / Memory
-                   ↓
-              Hardware
+flowchart TB
+    A["실제 업무 문제"]
+
+    B["Domain Expert<br/>업무 전문성 ★★★★★"]
+    C["업무 규칙 / 요구사항"]
+
+    D["Developer"]
+
+    E["Domain 이해<br/>★★★☆☆"]
+    F["System 이해<br/>★★★★★"]
+    G["AI 활용<br/>★★★★☆"]
+
+    H["Operating System"]
+    I["Network"]
+    J["Database"]
+
+    K["Architecture<br/>★★★★★"]
+    L["AI Coding Agent"]
+    M["Software"]
+
+    A --> B
+    B --> C
+    C --> D
+
+    D --> E
+    D --> F
+    D --> G
+
+    F --> H
+    F --> I
+    F --> J
+
+    H --> K
+    I --> K
+    J --> K
+
+    E --> K
+    G --> L
+
+    K --> L
+    L --> M
 ```
 
 AI가 위쪽의 복잡성을 감춰줄수록 사람이 문제가 발생했을 때 **아래 계층을 이해하는 능력의 희소성이 오히려 증가할 수 있습니다.**
@@ -458,12 +496,24 @@ Spring이 알아서 해준다.
 라고 생각하다가 문제가 생기면
 
 ```mermaid
-JVM
-GC
-Thread Pool
-Heap
-Connection Pool
-Transaction
+flowchart TB
+    A["Spring이 알아서 해준다"]
+
+    A --> B["실제 장애 발생"]
+
+    B --> C["JVM"]
+    B --> D["GC"]
+    B --> E["Thread Pool"]
+    B --> F["Heap"]
+    B --> G["Connection Pool"]
+    B --> H["Transaction"]
+
+    C --> I["하위 시스템 이해 필요"]
+    D --> I
+    E --> I
+    F --> I
+    G --> I
+    H --> I
 ```
 
 까지 내려가야 했던 것과 같습니다.
@@ -475,6 +525,28 @@ Agent 시대에는
 라는 새로운 추상화 계층이 하나 더 생긴 것뿐입니다.
 
 ---
+
+```mermaid
+flowchart TB
+    A["Developer"]
+    B["AI Agent"]
+    C["Framework"]
+    D["Runtime"]
+    E["Operating System"]
+    F["Hardware"]
+
+    A -->|"작업 지시"| B
+    B -->|"코드 생성"| C
+    C --> D
+    D --> E
+    E --> F
+
+    F -. "문제 발생" .-> E
+    E -. "원인 추적" .-> D
+    D -. "원인 추적" .-> C
+    C -. "원인 추적" .-> B
+    B -. "최종 판단" .-> A
+```
 
 # 8. 따라서 개발자 교육에서도 방향을 조금 바꾸는 것이 좋습니다
 
@@ -511,33 +583,38 @@ def users():
 이 코드 한 줄이 실제로 어떤 일을 발생시키는지 추적하게 합니다.
 
 ```mermaid
-사용자 클릭
-   ↓
-Browser
-   ↓
-DNS
-   ↓
-TCP Connection
-   ↓
-HTTP Request
-   ↓
-Linux Socket
-   ↓
-Web Server
-   ↓
-Python Process
-   ↓
-Thread / Event Loop
-   ↓
-FastAPI
-   ↓
-DB Connection
-   ↓
-SQL
-   ↓
-Disk / Memory
-   ↓
-Response
+flowchart TB
+    A["사용자 클릭"]
+    B["Browser"]
+    C["DNS"]
+    D["TCP Connection"]
+    E["HTTP Request"]
+    F["Linux Socket"]
+    G["Web Server"]
+    H["Python Process"]
+    I["Thread / Event Loop"]
+    J["FastAPI"]
+    K["DB Connection"]
+    L["SQL"]
+    M["Disk / Memory"]
+    N["HTTP Response"]
+    O["Browser 화면 표시"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+    K --> L
+    L --> M
+
+    M --> N
+    N --> O
 ```
 
 학생이 이것을 이해하면
