@@ -90,9 +90,6 @@ flowchart TB
     I["Consistency"]
     J["Logging"]
 
-    A --> B
-    B --> C
-
     C --> D
     C --> E
     C --> F
