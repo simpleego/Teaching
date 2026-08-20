@@ -11,7 +11,8 @@
 
 ---
 
-[개발자의_도메인역량](https://github.com/user-attachments/assets/9b2f2aa9-0cc6-4a0b-9dec-41b999395fc8.jpg)
+[개발자의_도메인역량](https://github.com/simpleego/Teaching/blob/main/AI/domain_knowledge.png)
+
 
 ---
 
