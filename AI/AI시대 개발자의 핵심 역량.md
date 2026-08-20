@@ -668,7 +668,6 @@ flowchart TB
 
 ```mermaid
 graph TD
-    %% 정의
     A[AI Agent Layer<br>자율 의사결정/도구 사용] 
     B[Software Architecture Layer<br>마이크로서비스/이벤트 기반 아키텍처]
     C[Distributed System Layer<br>분산 처리/일관성/장애 허용]
@@ -677,10 +676,8 @@ graph TD
     F[Operating System Layer<br>프로세스/메모리/파일 시스템 관리]
     G[Computer Architecture Layer<br>CPU/메모리/명령어 집합 구조]
 
-    %% 관계
     G --> F --> E --> D --> C --> B --> A
 
-    %% 스타일
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style G fill:#bbf,stroke:#333,stroke-width:2px
 
