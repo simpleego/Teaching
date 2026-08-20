@@ -28,6 +28,7 @@ flowchart LR
     classDef goal fill:#E8F5E9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20,font-weight:bold;
 ```
 ---  
+
 ## 금융 개발자
 ```mermaid
 flowchart LR
@@ -680,7 +681,9 @@ graph TD
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style G fill:#bbf,stroke:#333,stroke-width:2px
+```
 
+```mermaid
 graph LR
     subgraph Foundation [기반 기술]
         CA[Computer Architecture]
@@ -708,8 +711,9 @@ graph LR
 
     AI -.->|활용| DB
     AI -.->|호출| Net
+```
 
-
+```mermaid
 flowchart TB
     HW[💻 Computer Architecture<br>성능/병렬 처리 기반] --> OS
     OS[⚙️ Operating System<br>리소스 관리/가상화] --> Net
