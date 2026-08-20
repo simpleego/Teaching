@@ -28,58 +28,45 @@
 
 ### 쇼핑몰
 
-```text
-회원가입
-  ↓
-상품검색
-  ↓
-장바구니
-  ↓
-주문
-  ↓
-결제
-  ↓
-재고차감
-  ↓
-배송
-  ↓
-구매확정
+```mermaid
+flowchart LR
+    A("📝 회원가입"):::shop --> B("🔍 상품검색"):::shop
+    B --> C(" 장바구니"):::shop
+    C --> D("📦 주문"):::shop
+    D --> E("💳 결제"):::shop
+    E --> F("📉 재고차감"):::shop
+    F --> G(" 배송"):::shop
+    G --> H("✅ 구매확정"):::shop
+
+    classDef shop fill:#E8F5E9,stroke:#2E7D32,stroke-width:2px,color:#1B5E20,font-weight:bold;
 ```
 
 ### 병원
 
-```text
-환자등록
-  ↓
-예약
-  ↓
-접수
-  ↓
-진료
-  ↓
-검사
-  ↓
-처방
-  ↓
-수납
+```mermaid
+flowchart LR
+    A("📋 환자등록"):::hospital --> B("📅 예약"):::hospital
+    B --> C("🏨 접수"):::hospital
+    C --> D("🩺 진료"):::hospital
+    D --> E(" 검사"):::hospital
+    E --> F("💊 처방"):::hospital
+    F --> G("💰 수납"):::hospital
+
+    classDef hospital fill:#FFEBEE,stroke:#C62828,stroke-width:2px,color:#B71C1C,font-weight:bold;
 ```
 
 ### 교육기관
 
-```text
-수강신청
-  ↓
-등록
-  ↓
-수업
-  ↓
-출결
-  ↓
-평가
-  ↓
-수료
-  ↓
-취업관리
+```mermaid
+flowchart LR
+    A("📝 수강신청"):::edu --> B("🎓 등록"):::edu
+    B --> C("📚 수업"):::edu
+    C --> D("📊 출결"):::edu
+    D --> E(" 평가"):::edu
+    E --> F("🏆 수료"):::edu
+    F --> G("💼 취업관리"):::edu
+
+    classDef edu fill:#FFF3E0,stroke:#E65100,stroke-width:2px,color:#BF3603,font-weight:bold;
 ```
 
 학생이 코딩에 들어가기 전에
