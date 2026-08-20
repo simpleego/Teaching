@@ -11,7 +11,7 @@
 
 ---
 
-[개발자의_도메인역량](https://github.com/simpleego/Teaching/blob/main/AI/domain_knowledge.png)
+<img src="https://github.com/simpleego/Teaching/blob/main/AI/domain_knowledge.png" >
 
 
 ---
