@@ -518,7 +518,7 @@ AI가 위쪽의 복잡성을 감춰줄수록 사람이 문제가 발생했을 �
 
 예전에 Java 개발자들이
 
-```mermaid
+```text
 Spring이 알아서 해준다.
 ```
 
@@ -667,19 +667,65 @@ flowchart TB
 그리고 Agent 시대에는 개발자의 핵심 기술 기반을
 
 ```mermaid
-Computer Architecture
-        +
-Operating System
-        +
-Network
-        +
-Database
-        +
-Distributed System
-        +
-Software Architecture
-        +
-AI Agent
+graph TD
+    %% 정의
+    A[AI Agent Layer<br>자율 의사결정/도구 사용] 
+    B[Software Architecture Layer<br>마이크로서비스/이벤트 기반 아키텍처]
+    C[Distributed System Layer<br>분산 처리/일관성/장애 허용]
+    D[Database Layer<br>데이터 영속화/인덱싱/트랜잭션]
+    E[Network Layer<br>통신 프로토콜/데이터 전송]
+    F[Operating System Layer<br>프로세스/메모리/파일 시스템 관리]
+    G[Computer Architecture Layer<br>CPU/메모리/명령어 집합 구조]
+
+    %% 관계
+    G --> F --> E --> D --> C --> B --> A
+
+    %% 스타일
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style G fill:#bbf,stroke:#333,stroke-width:2px
+
+graph LR
+    subgraph Foundation [기반 기술]
+        CA[Computer Architecture]
+        OS[Operating System]
+    end
+
+    subgraph Infrastructure [인프라]
+        Net[Network]
+        DB[Database]
+        DS[Distributed System]
+    end
+
+    subgraph Application [응용/지능]
+        SA[Software Architecture]
+        AI[AI Agent]
+    end
+
+    %% 의존성 연결
+    CA --> OS
+    OS --> Net
+    OS --> DB
+    Net --> DS
+    DB --> DS
+    DS --> SA
+    SA --> AI
+
+    %% 설명
+    AI -.->|활용| DB
+    AI -.->|호출| Net
+
+
+flowchart TB
+    HW[💻 Computer Architecture<br>성능/병렬 처리 기반] --> OS
+    OS[⚙️ Operating System<br>리소스 관리/가상화] --> Net
+    Net[🌐 Network<br>클러스터링/통신] --> DS
+    DS[☁️ Distributed System<br>확장성/일관성] --> DB
+    DB[🗄️ Database<br>데이터 저장/분산 트랜잭션] --> SA
+    SA[🧩 Software Architecture<br>시스템 설계 패턴] --> AI
+    AI[🤖 AI Agent<br>자율적 작업 수행/추론]
+
+    AI -.->|피드백 및 최적화 요청| HW
+
 ```
 
 로 보는 것이 좋습니다.
