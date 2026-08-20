@@ -12,10 +12,18 @@
 
 따라서 개발자가
 
-```text
-의료 개발자 → 의사가 될 정도로 의료 공부
-금융 개발자 → 금융전문가가 될 정도로 금융 공부
-물류 개발자 → 물류전문가가 될 정도로 물류 공부
+```mermaid
+flowchart LR
+    A("👨💻 개발자<br>출발점"):::start --> B("📚 기초 의학<br>해부학, 생리학"):::medical
+    B --> C(" 임상 지식<br>질병, 진단, 치료"):::medical
+    C --> D("💊 의학 전문<br>약리학, 병리학"):::medical
+    D --> E(" 의료 규제<br>HIPAA, FDA, 의료법"):::medical
+    E --> F("🏥 의료 IT<br>EHR, PACS, DICOM"):::medical
+    F --> G("👨‍⚕️ 의료 전문가<br>수준 달성"):::goal
+
+    classDef start fill:#E3F2FD,stroke:#1565C0,stroke-width:3px,color:#0D47A1,font-weight:bold;
+    classDef medical fill:#FFEBEE,stroke:#C62828,stroke-width:2px,color:#B71C1C;
+    classDef goal fill:#E8F5E9,stroke:#2E7D32,stroke-width:3px,color:#1B5E20,font-weight:bold;
 ```
 
 할 필요는 없습니다.
