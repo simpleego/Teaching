@@ -11,7 +11,7 @@
 
 ---
 
-<img width="100%"  alt="image" src="https://github.com/user-attachments/assets/eded2f81-8940-4f85-8e23-e65fbc389eec" />
+[개발자의_도메인역량](https://github.com/user-attachments/assets/9b2f2aa9-0cc6-4a0b-9dec-41b999395fc8)
 
 ---
 
