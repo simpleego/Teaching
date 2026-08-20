@@ -63,19 +63,17 @@ flowchart LR
 
 개발자가 필요한 정도는 오히려 이 수준입니다.
 
-```text
-Domain Expert
-"결제가 승인되면 주문을 확정해야 합니다."
-
-        ↓
-
-Developer
-"그렇다면 승인과 주문 DB 저장 사이에
-실패가 발생하면 어떻게 하지?"
-
-        ↓
-
-기술 문제
+```mermaid
+flowchart TD
+    A(" Domain Expert<br>결제가 승인되면<br>주문을 확정해야 합니다."):::domain
+    
+    A -->|"요구사항 전달"| B("💻 Developer<br>그렇다면 승인과 주문 DB 저장 사이에<br>실패가 발생하면 어떻게 하지?"):::developer
+    
+    B -->|"기술적 질문"| C("⚠️ 기술 문제<br>트랜잭션 관리,<br>장애 복구, 일관성 보장"):::issue
+    
+    classDef domain fill:#E3F2FD,stroke:#1565C0,stroke-width:3px,color:#0D47A1,font-weight:bold;
+    classDef developer fill:#FFF3E0,stroke:#E65100,stroke-width:3px,color:#BF3603,font-weight:bold;
+    classDef issue fill:#FFEBEE,stroke:#C62828,stroke-width:3px,color:#B71C1C,font-weight:bold;
 ```
 
 ```mermaid
