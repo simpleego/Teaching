@@ -454,14 +454,6 @@ flowchart LR
 
 # 6. 그래서 저는 개발자의 역량을 이렇게 보는 것이 더 적절하다고 생각합니다
 
-단순히
-
-```mermaid
-Domain Knowledge ★★★★★
-```
-
-로 놓기보다는 역할을 분리해야 합니다.
-
 ---
 
 <img width="1182" height="665" alt="image" src="https://github.com/user-attachments/assets/7429688e-2857-4e1d-860f-08af31b1cac8" />
