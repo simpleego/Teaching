@@ -81,8 +81,6 @@ flowchart TD
 
 ```mermaid
 flowchart TB
-    A["Domain Expert<br/>결제가 승인되면 주문을 확정해야 합니다."]
-    B["Developer<br/>승인과 주문 DB 저장 사이에<br/>실패가 발생하면 어떻게 하지?"]
     C["기술 문제"]
     D["Transaction"]
     E["Idempotency"]
