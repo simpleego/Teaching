@@ -229,6 +229,9 @@ Agent 시대에는 프로그래머와 데이터 직무의 경계도 상당히 �
 
 개발자가 최소한 다음을 이해해야 합니다.
 
+<img width="100%" alt="image" src="https://github.com/user-attachments/assets/50f89fb8-42d2-454c-b5a6-eb822d08402c" />
+
+
 ```text
 Domain
    ↓
