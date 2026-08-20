@@ -7,8 +7,11 @@
 
 ### 기존 개발자 → Agent 시대 개발자
 
+---  
+
 <img width="90%"  alt="image" src="https://github.com/user-attachments/assets/d70335c0-7cbb-4857-a41a-3f7be45cbbac" />
 
+--- 
 
 제가 보기에 프로그래머가 앞으로 **특히 더 중점을 두어야 할 것은 7가지**입니다.
 
