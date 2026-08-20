@@ -76,6 +76,9 @@ flowchart TD
     classDef issue fill:#FFEBEE,stroke:#C62828,stroke-width:3px,color:#B71C1C,font-weight:bold;
 ```
 
+---
+
+
 ```mermaid
 flowchart TB
     A["Domain Expert<br/>결제가 승인되면 주문을 확정해야 합니다."]
