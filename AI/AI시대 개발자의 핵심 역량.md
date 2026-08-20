@@ -94,15 +94,18 @@ flowchart LR
 개발자에게 남는 문제는 상대적으로 다음과 같이 됩니다.
 
 ```mermaid
-왜 느린가?
-왜 메모리가 부족한가?
-왜 요청이 동시에 들어오면 오류가 나는가?
-왜 서버가 죽는가?
-왜 데이터가 꼬이는가?
-왜 네트워크 연결이 끊기는가?
-왜 GPU를 사용하지 않는가?
-왜 Docker에서는 되는데 운영서버에서는 안 되는가?
-왜 비동기 처리가 필요한가?
+flowchart TB
+    A["개발자가 해결해야 할 문제"]
+
+    A --> B["왜 느린가?"]
+    A --> C["왜 메모리가 부족한가?"]
+    A --> D["왜 동시 요청에서 오류가 발생하는가?"]
+    A --> E["왜 서버가 죽는가?"]
+    A --> F["왜 데이터가 꼬이는가?"]
+    A --> G["왜 네트워크가 끊기는가?"]
+    A --> H["왜 GPU를 사용하지 않는가?"]
+    A --> I["왜 Docker에서는 되고<br/>운영 서버에서는 안 되는가?"]
+    A --> J["왜 비동기 처리가 필요한가?"]
 ```
 
 이 문제들은 Prompt Engineering만으로 이해하기 어렵습니다.
@@ -110,19 +113,31 @@ flowchart LR
 결국 밑으로 내려갑니다.
 
 ```mermaid
-Application
-     ↓
-Framework
-     ↓
-Runtime
-     ↓
-Operating System
-     ↓
-CPU / Memory / Storage
-     ↓
-Network
-     ↓
-Hardware
+flowchart TB
+    A["Application"]
+    B["Framework"]
+    C["Runtime"]
+    D["Operating System"]
+
+    E["CPU"]
+    F["Memory"]
+    G["Storage"]
+    H["Network"]
+    I["Hardware"]
+
+    A --> B
+    B --> C
+    C --> D
+
+    D --> E
+    D --> F
+    D --> G
+    D --> H
+
+    E --> I
+    F --> I
+    G --> I
+    H --> I
 ```
 
 따라서 개발자가 **컴퓨터가 실제로 어떻게 프로그램을 실행하는지를 이해하는 능력**은 오히려 차별화될 가능성이 높다고 봅니다.
@@ -140,18 +155,21 @@ Hardware
 반드시 이해하면 좋은 개념입니다.
 
 ```mermaid
-Process
-Thread
-Context Switching
-Virtual Memory
-Stack / Heap
-File System
-I/O
-Socket
-Concurrency
-Synchronization
-Deadlock
-Scheduling
+flowchart TB
+    A["Operating System"]
+
+    A --> B["Process"]
+    A --> C["Thread"]
+    A --> D["Context Switching"]
+    A --> E["Virtual Memory"]
+    A --> F["Stack / Heap"]
+    A --> G["File System"]
+    A --> H["I/O"]
+    A --> I["Socket"]
+    A --> J["Concurrency"]
+    A --> K["Synchronization"]
+    A --> L["Deadlock"]
+    A --> M["Scheduling"]
 ```
 
 예를 들어 Python에서
@@ -164,11 +182,24 @@ async def request():
 를 사용하는 이유도 단순히 `async` 문법을 외우는 것이 아니라
 
 ```mermaid
-CPU 작업인가?
-I/O 작업인가?
-Thread가 필요한가?
-Process가 필요한가?
-Event Loop가 적절한가?
+flowchart TB
+    A["async / 비동기 처리가 필요한가?"]
+
+    A --> B{"작업의 특성은?"}
+
+    B --> C["CPU 중심 작업"]
+    B --> D["I/O 중심 작업"]
+
+    C --> E["Process가 적절한가?"]
+    C --> F["병렬 처리가 필요한가?"]
+
+    D --> G["Thread가 필요한가?"]
+    D --> H["Event Loop가 적절한가?"]
+
+    G --> I["Concurrency 전략 결정"]
+    H --> I
+    E --> I
+    F --> I
 ```
 
 를 판단할 수 있어야 합니다.
@@ -180,51 +211,65 @@ Event Loop가 적절한가?
 현대 애플리케이션은 사실상 분산 시스템입니다.
 
 ```mermaid
-Browser
-   ↓
-DNS
-   ↓
-TCP/IP
-   ↓
-TLS
-   ↓
-HTTP
-   ↓
-Load Balancer
-   ↓
-Web Server
-   ↓
-Application Server
-   ↓
-Database
+flowchart TB
+    A["Browser"]
+    B["DNS"]
+    C["TCP/IP"]
+    D["TLS"]
+    E["HTTP / HTTPS"]
+    F["Load Balancer"]
+    G["Web Server"]
+    H["Application Server"]
+    I["Database"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
 ```
 
 따라서 다음 정도는 개발자의 핵심 기초라고 봅니다.
 
 ```mermaid
-IP
-Port
-TCP / UDP
-DNS
-HTTP / HTTPS
-TLS
-Socket
-Connection
-Timeout
-Retry
-Proxy
-Load Balancer
-WebSocket
+flowchart TB
+    A["Network"]
+
+    A --> B["IP"]
+    A --> C["Port"]
+    A --> D["TCP / UDP"]
+    A --> E["DNS"]
+    A --> F["HTTP / HTTPS"]
+    A --> G["TLS"]
+    A --> H["Socket"]
+    A --> I["Connection"]
+    A --> J["Timeout"]
+    A --> K["Retry"]
+    A --> L["Proxy"]
+    A --> M["Load Balancer"]
+    A --> N["WebSocket"]
 ```
 
 예를 들어
 
 ```mermaid
-CORS Error
-Connection Timeout
-502 Bad Gateway
-Connection Refused
-TLS Error
+flowchart TB
+    A["Application Error"]
+
+    A --> B["CORS Error"]
+    A --> C["Connection Timeout"]
+    A --> D["502 Bad Gateway"]
+    A --> E["Connection Refused"]
+    A --> F["TLS Error"]
+
+    B --> G["Browser / HTTP 정책 확인"]
+    C --> H["Network / Server / DB 확인"]
+    D --> I["Proxy / Gateway / Backend 확인"]
+    E --> J["Port / Process / Firewall 확인"]
+    F --> K["Certificate / TLS 설정 확인"]
 ```
 
 를 Agent에게 맡기더라도 **어느 계층에서 문제가 발생했는지 판단할 수 있어야 합니다.**
@@ -236,16 +281,19 @@ TLS Error
 Agent가 SQL을 아주 잘 만들어주는 시대에도 개발자는 다음을 알아야 합니다.
 
 ```mermaid
-Transaction
-ACID
-Index
-Lock
-Isolation Level
-Deadlock
-Connection Pool
-Replication
-Consistency
-Cache
+flowchart TB
+    A["Database"]
+
+    A --> B["Transaction"]
+    A --> C["ACID"]
+    A --> D["Index"]
+    A --> E["Lock"]
+    A --> F["Isolation Level"]
+    A --> G["Deadlock"]
+    A --> H["Connection Pool"]
+    A --> I["Replication"]
+    A --> J["Consistency"]
+    A --> K["Cache"]
 ```
 
 예를 들어 AI가 다음 SQL을 만들 수 있습니다.
@@ -261,13 +309,29 @@ WHERE customer_id = 100;
 개발자가 생각해야 하는 것은
 
 ```mermaid
-Index가 있는가?
-Full Scan인가?
-Query Plan은?
-Memory는?
-Cache는?
-DB Connection은?
-Partition이 필요한가?
+flowchart TB
+    A["SQL Query"]
+    B["데이터 규모 증가<br/>예: 10억 건"]
+
+    A --> B
+
+    B --> C{"성능 확인"}
+
+    C --> D["Index가 있는가?"]
+    C --> E["Full Scan인가?"]
+    C --> F["Query Plan은?"]
+    C --> G["Memory 사용량은?"]
+    C --> H["Cache는?"]
+    C --> I["DB Connection은?"]
+    C --> J["Partition이 필요한가?"]
+
+    D --> K["DB 구조 최적화"]
+    E --> K
+    F --> K
+    G --> K
+    H --> K
+    I --> K
+    J --> K
 ```
 
 입니다.
@@ -283,29 +347,41 @@ Partition이 필요한가?
 예를 들어 LLM을 사용하다 보면 곧바로 다음 문제가 등장합니다.
 
 ```mermaid
-CPU
-GPU
-VRAM
-RAM
-PCIe
-Memory Bandwidth
-Cache
-Tensor Core
-FP32 / FP16 / BF16 / INT8
+flowchart TB
+    A["AI / LLM 실행 환경"]
+
+    A --> B["CPU"]
+    A --> C["GPU"]
+    A --> D["RAM"]
+    A --> E["VRAM"]
+    A --> F["PCIe"]
+    A --> G["Memory Bandwidth"]
+    A --> H["Cache"]
+    A --> I["Tensor Core"]
+
+    I --> J["FP32"]
+    I --> K["FP16"]
+    I --> L["BF16"]
+    I --> M["INT8"]
 ```
 
 왜
 
 ```mermaid
-70B 모델은 GPU 한 장에서 안 돌아가지?
+flowchart TB
+    A["AI 모델 실행 문제"]
 
-왜 Quantization을 하지?
+    A --> B["왜 70B 모델은<br/>GPU 한 장에서 어려운가?"]
+    A --> C["왜 Quantization을 하는가?"]
+    A --> D["왜 Batch Size 증가 시<br/>VRAM이 부족한가?"]
+    A --> E["왜 GPU 사용률이 낮은데<br/>처리는 느린가?"]
+    A --> F["왜 데이터 이동이<br/>병목이 되는가?"]
 
-왜 Batch Size를 늘리면 GPU 메모리가 부족하지?
-
-왜 GPU 사용률은 낮은데 느리지?
-
-왜 데이터 이동이 병목이지?
+    B --> G["VRAM / Parameter Size"]
+    C --> H["Precision / Memory"]
+    D --> I["Activation / VRAM"]
+    E --> J["CPU / I/O / Network Bottleneck"]
+    F --> K["PCIe / Memory Bandwidth"]
 ```
 
 를 이해하려면 결국 하드웨어 구조로 내려갑니다.
