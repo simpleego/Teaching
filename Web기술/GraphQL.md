@@ -15,6 +15,11 @@
 
 # 1. 전체 구조
 
+<img width="1055" height="1491" alt="image" src="https://github.com/user-attachments/assets/8b02765d-00cd-49bd-84ee-4dd67463fa2b" />
+
+---
+
+
 ```text
 [HTML + JavaScript]
         |
